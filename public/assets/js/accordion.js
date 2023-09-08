@@ -1,0 +1,1 @@
+$(".acc-head").click(function(e){const open=$(this).hasClass("open");if(open){$(this).removeClass("open");$(this).next(".acc-body").slideUp()}else{$(".acc-head").removeClass("open");$(".acc-body").slideUp();$(this).addClass("open");$(this).next(".acc-body").slideDown()}})
