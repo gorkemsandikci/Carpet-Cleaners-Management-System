@@ -19,11 +19,15 @@
                         <table class="table">
                             <thead>
                             <tr>
-                                <th>name</th>
-                                <th>gender</th>
-                                <th>address</th>
+                                <th>İsim</th>
+                                <th>Cinsiyet</th>
+                                <th>Şehir</th>
+                                <th>İlçe</th>
+                                <th>Adres</th>
+                                <th>Telefon</th>
+                                <th>E-Posta</th>
                                 <th>Durum</th>
-                                <th>Düzenle</th>
+                                <th>İşlem</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -33,7 +37,11 @@
                                         <td>{{ $customer->first_name . ' ' . $customer->last_name }}</td>
 
                                         <td>{{ $customer->customer->gender ?? null}}</td>
+                                        <td>{{ $customer->city_id }}</td>
+                                        <td>{{ $customer->district_id }}</td>
                                         <td>{{ $customer->address }}</td>
+                                        <td>{{ $customer->phone }}</td>
+                                        <td>{{ $customer->email }}</td>
                                         <td>
                                             <div class="checkbox">
                                                 <label>

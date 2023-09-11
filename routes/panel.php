@@ -31,7 +31,7 @@ Route::group(['middleware' => 'panelsetting', 'prefix' => 'panel', 'as' => 'pane
 
     Route::get('/', [DashboardController::class, 'index'])->name('index');
 
-    Route::group(['prefix' => 'category'], function () {
+    Route::group(['prefix' => 'customer'], function () {
         Route::get('', [CustomerController::class, 'index'])->name('customer.index');
         Route::get('/create', [CustomerController::class, 'create'])->name('customer.create');
         Route::get('/{id}/edit', [CustomerController::class, 'edit'])->name('customer.edit');
@@ -39,6 +39,7 @@ Route::group(['middleware' => 'panelsetting', 'prefix' => 'panel', 'as' => 'pane
         Route::put('/{id}/update', [CustomerController::class, 'update'])->name('customer.update');
         Route::delete('/destroy', [CustomerController::class, 'destroy'])->name('customer.destroy');
         Route::post('/status-update', [CustomerController::class, 'statusUpdate'])->name('customer.status');
+        Route::post('/fetch-district', [CustomerController::class, 'fetchDistrict'])->name('fetchDistrict');
     });
 
 

@@ -37,39 +37,74 @@
                             @method('PUT')
                         @endif
 
-                        @if (!empty($customer->image))
-                            <div class="form-group">
-                                <div class="input-group col-xs-12">
-                                    <img width="40%" src="{{asset($customer->image)}}">
-                                </div>
-                            </div>
-                        @endif
-
 
                         <div class="form-group">
-                            <label for="baslik">Başlık</label>
-                            <input type="text" class="form-control" id="baslik" name="name"
-                                   value="{{ $customer->name ?? '' }}"
-                                   placeholder="Başlık">
+                            <label for="first_name">İsim</label>
+                            <input type="text" class="form-control" id="first_name" name="first_name"
+                                   value="{{ $customer->first_name ?? '' }}">
                         </div>
 
                         <div class="form-group">
-                            <label for="aciklama">Açıklama</label>
-                            <textarea class="form-control" id="aciklama" name="description" placeholder="Açıklama"
-                                      rows="3">{!! $customer->content ?? '' !!}
+                            <label for="last_name">Soyisim</label>
+                            <input type="text" class="form-control" id="last_name" name="last_name"
+                                   value="{{ $customer->last_name ?? '' }}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Telefon</label>
+                            <input type="tel" class="form-control" id="phone" name="phone"
+                                   value="{{ $customer->phone ?? '' }}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="gender">Cinsiyet</label>
+                            @php
+                                $status = $customer->gender ?? '1';
+                            @endphp
+                            <select class="form-control" id="gender" name="gender">
+                                <option value="1" {{$status == '1' ? 'selected' : ''}}>Erkek</option>
+                                <option value="0" {{$status == '0' ? 'selected' : ''}}>Kadın</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="city_id">Şehir</label>
+                            <select class="form-control" id="city_dd" name="city_id">
+                                <option value="">Şehir Seç</option>
+                                @if($cities)
+                                    @foreach($cities as $city)
+                                        <option
+                                            value="{{ $city->id }}" {{ isset($customer) && $city->id == $customer->city_id ? 'selected' : '' }} >{{ $city->name }}</option>
+                                    @endforeach
+                                @endif
+                            </select>
+                        </div>
+
+{{--                        <div class="form-group mb-3">--}}
+{{--                            <label for="city_id">İlçe</label>--}}
+{{--                            <select id="district_dd" class="form-control" name="district_id"></select>--}}
+{{--                        </div>--}}
+
+                        <div class="form-group mb-3">
+                            <label for="city_id">İlçe</label>
+                            <select id="district_dd" class="form-control" name="district_id"></select>
+                            <option value="">Şehir Seç</option>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address">Açık Adres</label>
+                            <textarea class="form-control" id="address" name="address"
+                                      rows="3">{!! $customer->address ?? '' !!}
                             </textarea>
                         </div>
 
                         <div class="form-group">
-                            <label for="durum">Durum</label>
-                            @php
-                                $status = $customer->status ?? '1';
-                            @endphp
-                            <select class="form-control" id="durum" name="status">
-                                <option value="1" {{$status == '1' ? 'selected' : ''}}>Aktif</option>
-                                <option value="0" {{$status == '0' ? 'selected' : ''}}>Pasif</option>
-                            </select>
+                            <label for="special_notes">Özel Not</label>
+                            <textarea class="form-control" id="special_notes" name="special_notes"
+                                      rows="3">{!! $customer->special_notes ?? '' !!}
+                            </textarea>
                         </div>
+
                         <button type="submit" class="btn btn-primary mr-2">Kaydet</button>
                         <button class="btn btn-light">İptal</button>
                     </form>
@@ -78,4 +113,28 @@
         </div>
     </div>
 
+@endsection
+
+@section('customjs')
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#city_dd').change(function (event) {
+                var city_id = this.value;
+                $('#district_dd').html('');
+
+                $.ajax({
+                    url: "fetch-district",
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {city_id: city_id, _token: "{{ csrf_token() }}"},
+                    success: function (response) {
+                        $('#district_dd').html(' <option value="">İlçe Seçin</option>');
+                        $.each(response.districts, function (index, val) {
+                            $('#district_dd').append('<option value="' + val.id + '"> ' + val.name + ' </option>')
+                        });
+                    }
+                })
+            });
+        });
+    </script>
 @endsection

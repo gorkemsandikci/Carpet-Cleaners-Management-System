@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CustomerRequest;
+use App\Models\Cities;
+use App\Models\Districts;
 use App\Models\Customer;
 use Illuminate\Http\Request;
 
@@ -25,7 +27,8 @@ class CustomerController extends Controller
     public function create()
     {
         $customers = Customer::get();
-        return view('backend.pages.customer.edit', compact('customers'));
+        $cities = Cities::get(['name', 'id']);
+        return view('backend.pages.customer.edit', compact('customers', 'cities'));
     }
 
     /**
@@ -65,7 +68,9 @@ class CustomerController extends Controller
     {
         $customer = Customer::where('id', $id)->first();
         $customers = Customer::get();
-        return view('backend.pages.customer.edit', compact('customer','customers'));
+        $cities = Cities::get();
+        $districts = Districts::get(['name', 'id', 'city_id']);
+        return view('backend.pages.customer.edit', compact('customer', 'customers', 'cities', 'districts'));
     }
 
     /**
@@ -110,5 +115,12 @@ class CustomerController extends Controller
 
         Customer::where('id', $request->id)->update(['status' => $update_check]);
         return response(['error' => false, 'status' => $update]);
+    }
+
+    public function fetchDistrict(Request $request)
+    {
+        $data['districts'] = Districts::where('city_id', $request->city_id)->get(['name', 'id']);
+
+        return response()->json($data);
     }
 }

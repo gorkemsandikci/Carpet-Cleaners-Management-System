@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('district_id');
             $table->text('address');
             $table->text('special_notes')->nullable();
-            $table->enum('status',['0', '1'])->default('0');
-            $table->string('email')->unique();
+            $table->enum('status',['0', '1'])->default('0')->nullable();
+            $table->string('email')->nullable();
             $table->string('phone')->nullable();
             $table->timestamps();
         });
