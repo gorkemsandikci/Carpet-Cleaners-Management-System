@@ -80,11 +80,6 @@
                             </select>
                         </div>
 
-{{--                        <div class="form-group mb-3">--}}
-{{--                            <label for="city_id">İlçe</label>--}}
-{{--                            <select id="district_dd" class="form-control" name="district_id"></select>--}}
-{{--                        </div>--}}
-
                         <div class="form-group mb-3">
                             <label for="city_id">İlçe</label>
                             <select id="district_dd" class="form-control" name="district_id"></select>
@@ -119,22 +114,27 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $('#city_dd').change(function (event) {
-                var city_id = this.value;
-                $('#district_dd').html('');
-
-                $.ajax({
-                    url: "fetch-district",
-                    type: 'POST',
-                    dataType: 'json',
-                    data: {city_id: city_id, _token: "{{ csrf_token() }}"},
-                    success: function (response) {
-                        $('#district_dd').html(' <option value="">İlçe Seçin</option>');
-                        $.each(response.districts, function (index, val) {
-                            $('#district_dd').append('<option value="' + val.id + '"> ' + val.name + ' </option>')
-                        });
-                    }
-                })
+                getDistricts();
             });
+            getDistricts();
         });
+
+        function getDistricts() {
+            var city_id = $('#city_dd').val();;
+            $('#district_dd').html('');
+            $.ajax({
+                url: "{{ url('/panel/customer/fetch-district') }}",
+                type: 'POST',
+                dataType: 'json',
+                data: {city_id: city_id, _token: "{{ csrf_token() }}"},
+                success: function (response) {
+                    $('#district_dd').html(' <option value="">İlçe Seçin</option>');
+                    $.each(response.districts, function (index, val) {
+                        $('#district_dd').append('<option value="' + val.id + '"> ' + val.name + ' </option>')
+                    });
+                    $('#district_dd').val({{ empty($customer->id) ? null : $customer->district_id }});
+                }
+            })
+        }
     </script>
 @endsection
