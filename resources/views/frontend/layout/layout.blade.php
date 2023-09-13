@@ -11,13 +11,13 @@
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Padişah&Beyefendi Halı Koltuk Perde Yıkama</title>
-    <link rel="shortcut icon" href="assets/uploads/vadi-koltuk-yikama-v.1.3-1.jpg" type="image/x-icon"/>
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="assets/css/fontawesome.css"/>
-    <link rel="stylesheet" href="assets/css/style061d.css?v=1.3.21"/><!-- swiper -->
-    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css"/><!-- light gallery -->
-    <link rel="stylesheet" href="assets/css/lightgallery.css"/>
-    <link rel="stylesheet" href="assets/css/index.css"/>
+    <link rel="shortcut icon" href="{{ url('/') }}/assets/uploads/vadi-koltuk-yikama-v.1.3-1.jpg" type="image/x-icon"/>
+    <link rel="stylesheet" href="{{ url('/') }}/assets/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="{{ url('/') }}/assets/css/fontawesome.css"/>
+    <link rel="stylesheet" href="{{ url('/') }}/assets/css/style061d.css?v=1.3.21"/><!-- swiper -->
+    <link rel="stylesheet" href="{{ url('/') }}/assets/css/swiper-bundle.min.css"/><!-- light gallery -->
+    <link rel="stylesheet" href="{{ url('/') }}/assets/css/lightgallery.css"/>
+    <link rel="stylesheet" href="{{ url('/') }}/assets/css/index.css"/>
     <meta name="google-site-verification" content="qD05B_kpyU3mFXR1Ip6Oo8ZLm6Yr-kvH-Yde-8rSbDE"/>
     <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
@@ -36,10 +36,12 @@
 </head>
 
 <body>
-<div id="preloader"><img src="assets/uploads/w-logo.png" class="logo" alt="Padişah&Beyefendi Halı Koltuk Perde Yıkama"/><i
+<div id="preloader"><img src="{{ url('/') }}/assets/uploads/w-logo.png" class="logo" alt="Padişah&Beyefendi Halı Koltuk Perde Yıkama"/><i
         class="fa fa-circle-notch fa-spin"></i></div>
 
 @include('frontend.inc.header')
+
+@stack('custom_css')
 
 @yield('content')
 
@@ -57,13 +59,13 @@
             href="cerezler-hakkinda-bilgilendirme.html" class="btn btn-link text-nowrap"
             onclick="closeCookiesMessage()">Bilgilendirme</a></div>
 </div>
-<script data-cfasync="false" src="assets/js/cloudflare-static/email-decode.min.js"></script>
-<script src="assets/js/jquery-3.5.1.min.js"></script>
-<script src="assets/js/settings061d.js?v=1.3.21"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/axios.min.js"></script><!-- accordion -->
-<script src="assets/js/accordion.js"></script><!-- swiper -->
-<script src="assets/js/swiper-bundle.min.js"></script>
+<script data-cfasync="false" src="{{ url('/') }}/assets/js/cloudflare-static/email-decode.min.js"></script>
+<script src="{{ url('/') }}/assets/js/jquery-3.5.1.min.js"></script>
+<script src="{{ url('/') }}/assets/js/settings061d.js?v=1.3.21"></script>
+<script src="{{ url('/') }}/assets/js/bootstrap.min.js"></script>
+<script src="{{ url('/') }}/assets/js/axios.min.js"></script><!-- accordion -->
+<script src="{{ url('/') }}/assets/js/accordion.js"></script><!-- swiper -->
+<script src="{{ url('/') }}/assets/js/swiper-bundle.min.js"></script>
 <script>const instance = axios.create({
         baseURL: 'https://vadikoltukyikama.com/api/v1/',
         headers: {'Content-Type': 'application/json', 'Accept-Language': 'tr', 'Override-Language': 'tr',}
@@ -94,14 +96,14 @@
         })
     }, 100)</script>
 <!-- counter -->
-<script src="assets/js/waypoints.min.js"></script>
-<script src="assets/js/counterup.min.js"></script>
+<script src="{{ url('/') }}/assets/js/waypoints.min.js"></script>
+<script src="{{ url('/') }}/assets/js/counterup.min.js"></script>
 <script
     type="text/javascript">jQuery(document).ready(function ($) {
         $(".count").counterUp({delay: 10, time: 1000,})
     })</script>
 <!-- light gallery -->
-<script src="assets/js/lightgallery-all.js"></script>
+<script src="{{ url('/') }}/assets/js/lightgallery-all.js"></script>
 <script>$("#photo-gallery").lightGallery({
         thumbnail: !0,
         share: !1,
@@ -160,7 +162,7 @@
 </noscript><!-- End Google Tag Manager (noscript) -->
 <div><a
         href="https://web.whatsapp.com/send?phone=905322157205&amp;text=Merhaba%20vadikoltukyikama.com%20Web%20Sitenizden%20Ula%c5%9f%c4%b1yorum.%20Yard%c4%b1mc%c4%b1%20Olabilir%20misiniz?"
-        class="whatsapp-icon" target="_blank"><img src="assets/uploads/whatsapp.png"></a></div>
+        class="whatsapp-icon" target="_blank"><img src="{{ url('/') }}/assets/uploads/whatsapp.png"></a></div>
 <script>
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         el = $('.whatsapp-icon');
@@ -169,7 +171,7 @@
         el.attr('href', newUrl);
     }
 </script>
-<div><a href="tel://05322157205" class="phone-icon d-lg-none"><img src="assets/uploads/phone.png"
+<div><a href="tel://05322157205" class="phone-icon d-lg-none"><img src="{{ url('/') }}/assets/uploads/phone.png"
                                                                    class="pb-2"><span>Hemen Ara</span></a></div>
 </body>
 

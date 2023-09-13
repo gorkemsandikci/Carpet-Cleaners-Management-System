@@ -1,6 +1,6 @@
 <header class="header-3">
     <div class="top-bar">
-        <div class="container"><a href="index.html" class="logo"><img src="assets/uploads/w-logo.png"
+        <div class="container"><a href="{{ url('/') }}" class="logo"><img src="{{ url('/') }}/assets/uploads/w-logo.png"
                                                                       alt="{{ config('app.name') }}"/></a>
             <div class="d-flex align-items-center">
                 <ul class="contact-items">
@@ -18,18 +18,18 @@
         </div>
     </div>
     <div class="bottom-bar">
-        <div class="container"><a href="index.html" class="logo"><img src="assets/uploads/vadilogo.png"
+        <div class="container"><a href="{{ url('/') }}" class="logo"><img src="{{ url('/') }}/assets/uploads/vadilogo.png"
                                                                       alt="Padişah&Beyefendi Halı Koltuk Perde Yıkama"/></a>
             <div class="d-flex align-items-center justify-content-end justify-content-lg-between w-100">
                 <div class="mobile-menu"><i class="fa fa-bars"></i></div>
                 <div class="menu">
                     <nav>
                         <ul>
-                            <li><a href="index.html">Ana Sayfa</a></li>
-                            <li><a href="hakkimizda.html">Hakkımızda</a></li>
-                            <li><a href="hizmetlerimiz.html">Hizmetlerimiz</a></li>
-                            <li><a href="galeri.html">Galeri</a></li>
-                            <li><a href="bize-ulasin.html">Bize Ulaşın</a></li>
+                            <li><a href="{{ url('/') }}">Ana Sayfa</a></li>
+                            <li><a href="{{ url('/hakkimizda') }}">Hakkımızda</a></li>
+                            <li><a href="{{ url('/hizmetlerimiz') }}">Hizmetlerimiz</a></li>
+                            <li><a href="{{ url('/galeri') }}">Galeri</a></li>
+                            <li><a href="{{ url('/iletisim') }}">Bize Ulaşın</a></li>
                             <li class="d-lg-none"><a href="tel://+905322157205" target="_self" class="big-button"><i
                                         class="fa fa-phone mr-1"></i><span>Randevu Al!</span></a></li>
                         </ul>
@@ -37,12 +37,12 @@
                 </div>
                 <div class="lang ">
                     <ul>
-                        <li><a href="javascript:;"><img src="assets/images/tr.png"
+                        <li><a href="javascript:;"><img src="{{ url('/') }}/assets/images/tr.png"
                                                         alt="Türkçe"/></a></li>
-                        <li><a href="en.html"><img src="assets/images/en.png"
+                        <li><a href="en.html"><img src="{{ url('/') }}/assets/images/en.png"
                                                    alt="English"/></a>
                         </li>
-                        <li><a href="ar.html"><img src="assets/images/ar.png" alt="Arabic"/></a>
+                        <li><a href="ar.html"><img src="{{ url('/') }}/assets/images/ar.png" alt="Arabic"/></a>
                         </li>
                     </ul>
                 </div>

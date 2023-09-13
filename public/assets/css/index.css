@@ -249,7 +249,7 @@ separator,
     font-size: 18px;
     margin-bottom: 20px;
     font-weight: 400;
-    font-family: Poppins;
+    font-family: Poppins, sans-serif;
 }
 
 .section-title {

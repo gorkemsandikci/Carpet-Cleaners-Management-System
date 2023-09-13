@@ -23,7 +23,8 @@ class DatabaseSeeder extends Seeder
             CustomerSeeder::class,
             SiteSettingSeeder::class,
             CitiesSeeder::class,
-            DistrictsSeeder::class
+            DistrictsSeeder::class,
+            ServiceSeeder::class
         ]);
 
     }

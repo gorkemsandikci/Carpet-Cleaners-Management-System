@@ -201,80 +201,21 @@
             </div>
             <div class="service-slider">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="slide">
-                            <div class="item">
-                                <div class="image"><img src="assets/uploads/slider1-1.png" alt="Koltuk Yıkama"/></div>
-                                <div class="content">
-                                    <h4>Koltuk Yıkama</h4>
-                                    <p>Evinizin vazgeçilmez mobilyası olan koltuklarınızı profesyonel olarak tüm leke ve
-                                        kirlerden arındırıyoruz.</p><a href="#" class="readmore">Devamını Oku</a>
+                    @if(!empty($services) && count($services) > 0)
+                        @foreach($services as $service)
+                            <div class="swiper-slide">
+                                <div class="slide">
+                                    <div class="item">
+                                        <div class="image"><img src="{{ url('/').$service->image }}" alt="{{ $service->slug }}"/></div>
+                                        <div class="content">
+                                            <h4>{{ $service->name }}</h4>
+                                            <p>{{ $service->short_text }}.</p><a href="{{  url('/').'/'.$service->slug }}" class="readmore">Devamını Oku</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="slide">
-                            <div class="item">
-                                <div class="image"><img src="assets/uploads/yatak.png" alt="Yatak Yıkama"/></div>
-                                <div class="content">
-                                    <h4>Yatak Yıkama</h4>
-                                    <p>Gün içinde en çok kullandığınız eşya olan yataklarınız yeterince temiz ve
-                                        hijyenik
-                                        mi?</p>
-                                    <a href="#" class="readmore">Devamını Oku</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="slide">
-                            <div class="item">
-                                <div class="image"><img src="assets/uploads/perde.png" alt="Perde Yıkama"/></div>
-                                <div class="content">
-                                    <h4>Perde Yıkama</h4>
-                                    <p>Dışarı ile en çok temas halinde olan perdelerinizi en son teknoloji cihazlar ile
-                                        hassas
-                                        şekilde temizliyoruz.</p><a href="#" class="readmore">Devamını Oku</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="slide">
-                            <div class="item">
-                                <div class="image"><img src="assets/uploads/manuel-hali-yikama-makinasi.jpg"
-                                                        alt="Ofis Halı Yıkama"/></div>
-                                <div class="content">
-                                    <h4>Ofis Halı Yıkama</h4>
-                                    <p>Ofis ve işyeri ortamında çalışan insanların günlerinin üçte biri burada
-                                        geçmektedir.
-                                        İnsanların sürekli girip çıktığı ve ayakkabıları ile dolaştığı ofis ve
-                                        işyerlerinde
-                                        halılar daha hızlı kirlenir ve sık sık temizlenmesi gerekir.</p><a
-                                        href="ofis-hali-yikama.html" class="readmore">Devamını Oku</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="slide">
-                            <div class="item">
-                                <div class="image"><img src="assets/uploads/31.jpg" alt="Yerinde Halı Yıkama"/></div>
-                                <div class="content">
-                                    <h4>Yerinde Halı Yıkama</h4>
-                                    <p>Yerinde Halı Yıkama konusunda profesyonel bir temizlik firması olarak, ev,
-                                        işyeri,
-                                        otel,
-                                        yurt, restoran, cami, sinema salonu ve diğer yerlerdeki halılarınız için en
-                                        kaliteli
-                                        temizlik ve yıkama hizmetleri vermekteyiz.</p><a href="yerinde-hali-yikama.html"
-                                                                                         class="readmore">Devamını
-                                        Oku</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        @endforeach
+                    @endif
                 </div>
                 <div class="swiper-pagination"></div>
             </div>

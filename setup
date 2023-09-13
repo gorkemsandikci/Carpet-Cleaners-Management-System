@@ -5,13 +5,13 @@
 -npm install (optional)
 -update .env file db connections
 -create database on mysql
--add vhost to : subl /etc/hosts 
+-add vhost to : subl /etc/hosts
 -brew services restart nginx
 -import theme assets into public folder
 -import panel theme assets into public/backend folder
 -php artisan make:controller PageHomeController
 -add index function to PageHomeController
--add "Route::get('/', [PageHomeController::class, 'index'])->name('index');" into web.php 
+-add "Route::get('/', [PageHomeController::class, 'index'])->name('index');" into web.php
 -add frontend folder into views folder
 -add backend folder into views folder
 -add inc folder into views/frontend
@@ -27,19 +27,24 @@
 - php artisan make:model SiteSetting -m
 
 -Model/Seeder kullanımı
--php artisan make:model Customer -m :Model ve migration oluşturuluyor
--users migrationun içine 
+****php artisan make:model Customer -m :Model ve migration oluşturuluyor
+-users migrationun içine
             $table->integer('is_admin')->default(0);
             $table->enum('status',['0', '1'])->default('0');
             satırlarını ekle
 -php artisan make:seeder CustomerSeeder
--add DatabaseSeeder.php 
+-add DatabaseSeeder.php
         $this->call([
             CustomerSeeder::class,
         ]);
 -add create method into CustomerSeeder
 -php artisan migrate --seed
 
+SLUG kullanma
+$ composer require cviebrock/eloquent-sluggable
+php artisan vendor:publish --provider="Cviebrock\EloquentSluggable\ServiceProvider"
+
+****-php artisan migrate:fresh --seed
 
 -Müsteri Kaydetme
 -Halı Kategorisi ekleme (m2 ffiyatı ile)

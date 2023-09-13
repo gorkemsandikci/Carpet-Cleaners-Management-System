@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Frontend\PageController;
 use App\Http\Controllers\Frontend\PageHomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => 'sitesetting'], function () {
 
     Route::get('/', [PageHomeController::class, 'index'])->name('index');
+    Route::get('/hakkimizda', [PageController::class, 'aboutUs'])->name('hakkimizda');
+    Route::get('/hizmetlerimiz', [PageController::class, 'ourServices'])->name('hizmetlerimiz');
+    Route::get('/iletisim', [PageController::class, 'contactUs'])->name('iletisim');
+    Route::get('/galeri', [PageController::class, 'gallery'])->name('galeri');
 
 });
 
