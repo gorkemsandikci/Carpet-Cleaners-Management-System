@@ -3,13 +3,15 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Abouts;
 use App\Models\Service;
 
 class PageController extends Controller
 {
     public function aboutUs()
     {
-        return view('frontend.pages.about-us');
+        $about_us = Abouts::where('key', 'about_us')->first();
+        return view('frontend.pages.about-us', compact('about_us'));
     }
     public function ourServices()
     {

@@ -24,7 +24,8 @@ class DatabaseSeeder extends Seeder
             SiteSettingSeeder::class,
             CitiesSeeder::class,
             DistrictsSeeder::class,
-            ServiceSeeder::class
+            ServiceSeeder::class,
+            AboutsSeeder::class
         ]);
 
     }
