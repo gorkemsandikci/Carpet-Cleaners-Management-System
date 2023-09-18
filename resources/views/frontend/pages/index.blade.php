@@ -1,12 +1,13 @@
 @extends('frontend.layout.layout')
 
 @section('content')
+
     <main>
         <section class="slider overlap">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <div class="slide text-center">
-                        <div class="bg overlay-none"><img src="assets/uploads/koltuk-7.jpg" alt=""/></div>
+                        <div class="bg overlay-none"><img src="{{ url('/') }}/assets/uploads/koltuk-7.jpg" alt=""/></div>
                         <div class="content" data-swiper-parallax="-500">
                             <div class="container">
                                 <h2>Koltuk Yıkamada Profesyonel Hizmet</h2><a href="koltuk-yikama.html"
@@ -19,7 +20,7 @@
                 </div>
                 <div class="swiper-slide">
                     <div class="slide text-center">
-                        <div class="bg overlay-none"><img src="assets/uploads/koltuk-8.jpg" alt=""/></div>
+                        <div class="bg overlay-none"><img src="{{ url('/') }}/assets/uploads/koltuk-8.jpg" alt=""/></div>
                         <div class="content" data-swiper-parallax="-500">
                             <div class="container">
                                 <h2>Tüm Eviniz İçin Profesyonel Temizleme</h2><a href="bize-ulasin.html"
@@ -31,7 +32,7 @@
                 </div>
                 <div class="swiper-slide">
                     <div class="slide text-center">
-                        <div class="bg overlay-none"><img src="assets/uploads/koltuk6.jpg" alt=""/></div>
+                        <div class="bg overlay-none"><img src="{{ url('/') }}/assets/uploads/koltuk6.jpg" alt=""/></div>
                         <div class="content" data-swiper-parallax="-500">
                             <div class="container">
                                 <h2>Profesyonel Ekip, Profesyonel Hizmet!</h2><a href="bize-ulasin.html"
@@ -44,7 +45,7 @@
                 </div>
                 <div class="swiper-slide">
                     <div class="slide text-center">
-                        <div class="bg overlay-none"><img src="assets/uploads/koltuk4.jpg" alt=""/></div>
+                        <div class="bg overlay-none"><img src="{{ url('/') }}/assets/uploads/koltuk4.jpg" alt=""/></div>
                         <div class="content" data-swiper-parallax="-500">
                             <div class="container"></div>
                         </div>
@@ -55,7 +56,7 @@
             <div class="swiper-button-next swiper-button-white nav-btn"></div>
         </section>
         <section class="about-2">
-            <div class="bg"><img src="assets/uploads/slider1-3.png" class="img-fluid"
+            <div class="bg"><img src="{{ url('/') }}/assets/uploads/slider1-3.png" class="img-fluid"
                                  alt="Padişah&Beyefendi Halı Koltuk Perde Yıkama"/></div>
             <div class="container">
                 <div class="content">
@@ -115,7 +116,7 @@
                     <div class="col-md-4">
                         <ul class="i-list medium">
                             <li class="i-list-item">
-                                <div class="icon"><img src="assets/uploads/icon-1.png" style="width:70px"/></div>
+                                <div class="icon"><img src="{{ url('/') }}/assets/uploads/icon-1.png" style="width:70px"/></div>
                                 <div class="icon-content">
                                     <h4 class="title">Özel Makina<br/>
                                         Hizmeti</h4>
@@ -126,7 +127,7 @@
                                 <div class="iconlist-timeline"> </div>
                             </li>
                             <li class="i-list-item">
-                                <div class="icon"><img src="assets/uploads/icon-2.png" style="width:70px"/></div>
+                                <div class="icon"><img src="{{ url('/') }}/assets/uploads/icon-2.png" style="width:70px"/></div>
                                 <div class="icon-content">
                                     <h4 class="title">Özel Deterjan Hizmeti</h4>
                                     <p>Profesyonel doğal leke çıkarıcılarla deterjanlar ile koltuk yıkama hizmetinde
@@ -139,7 +140,7 @@
                     <div class="col-md-4">
                         <ul class="i-list medium">
                             <li class="i-list-item">
-                                <div class="icon"><img src="assets/uploads/icon-3.png" style="width:70px"/></div>
+                                <div class="icon"><img src="{{ url('/') }}/assets/uploads/icon-3.png" style="width:70px"/></div>
                                 <div class="icon-content">
                                     <h4 class="title">Özel Dezenfeksiyon Hizmeti</h4>
                                     <p class="sub-title">Buharlı Temizlik kimyasalın kullanılmadığı doğal temizlik
@@ -151,7 +152,7 @@
                                 <div class="iconlist-timeline"> </div>
                             </li>
                             <li class="i-list-item">
-                                <div class="icon"><img src="assets/uploads/icon-4.png" style="width:70px"/></div>
+                                <div class="icon"><img src="{{ url('/') }}/assets/uploads/icon-4.png" style="width:70px"/></div>
                                 <div class="icon-content">
                                     <h4 class="title">Özel Kurutma Hizmeti</h4>
                                     <p>Bakterilerden tamamen arındırıldığında. Alanında en iyisi olan makinalarımız
@@ -166,7 +167,7 @@
                     <div class="col-md-4">
                         <ul class="i-list medium">
                             <li class="i-list-item">
-                                <div class="icon"><img src="assets/uploads/icon-5.png" style="width:70px"/></div>
+                                <div class="icon"><img src="{{ url('/') }}/assets/uploads/icon-5.png" style="width:70px"/></div>
                                 <div class="icon-content">
                                     <h4 class="title">Özel Leke Çıkarma Hizmeti</h4>
                                     <p class="sub-title">Yıkama işlemlerini sağlarken sadece lekelerden kurtulabilmeniz
@@ -179,7 +180,7 @@
                                 <div class="iconlist-timeline"> </div>
                             </li>
                             <li class="i-list-item">
-                                <div class="icon"><img src="assets/uploads/icon-6.png" style="width:70px"/></div>
+                                <div class="icon"><img src="{{ url('/') }}/assets/uploads/icon-6.png" style="width:70px"/></div>
                                 <div class="icon-content">
                                     <h4 class="title">Özel Kumaş Hizmeti</h4>
                                     <p>Koltuklarınızda bulunan kumaşlara zara gelmemesi, Özelliğinin ve Yeni satın almış
@@ -298,7 +299,7 @@
                         </div>
                     </div>
                     <div class="col-lg-6 d-none d-lg-block">
-                        <div class="image"><img src="assets/uploads/sss1.jpg" alt="SIK SORULAN SORULAR"/></div>
+                        <div class="image"><img src="{{ url('/') }}/assets/uploads/sss1.jpg" alt="SIK SORULAN SORULAR"/></div>
                     </div>
                 </div>
             </div>

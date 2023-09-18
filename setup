@@ -52,3 +52,19 @@ php artisan vendor:publish --provider="Cviebrock\EloquentSluggable\ServiceProvid
 - Fiş cıkartma
 Sms falan da var satın alırsan ben kullanmıyorum
 Arama geldiğinde müsteri kayıutlıysa telefonda gözüküyor uyglama ile dedi
+
+-AUTH işlemleri
+-route middleware içerisine 'auth' key'i eklenir
+-composer require laravel/ui
+-composer update
+-php artisan ui bootstrap --auth //auth view ve controller oluşturuluyor
+-blade içlerinden : @extends('layouts.app') -> @extends('frontend.layout.layout')
+-npm install
+-add function to AjaxController
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('index');
+    }
+-add Route
+    Route::get('/logout', [AjaxController::class, 'logout'])->name('logout');

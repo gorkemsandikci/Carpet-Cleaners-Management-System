@@ -10,7 +10,12 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
-Route::group(['middleware' => 'panelsetting', 'prefix' => 'panel', 'as' => 'panel.'], function () {
+
+Route::group(['prefix' => 'auth'], function () {
+    Route::get('', [CustomerController::class, 'index'])->name('customer.index');
+});
+
+Route::group(['middleware' => ['panelsetting', 'auth'], 'prefix' => 'panel', 'as' => 'panel.'], function () {
 
     Route::get('/', [DashboardController::class, 'index'])->name('index');
 
@@ -24,5 +29,6 @@ Route::group(['middleware' => 'panelsetting', 'prefix' => 'panel', 'as' => 'pane
         Route::post('/status-update', [CustomerController::class, 'statusUpdate'])->name('customer.status');
         Route::post('/fetch-district', [CustomerController::class, 'fetchDistrict'])->name('fetchDistrict');
     });
+
 });
 

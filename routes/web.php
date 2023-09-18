@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\Frontend\PageController;
 use App\Http\Controllers\Frontend\PageHomeController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +25,10 @@ Route::group(['middleware' => 'sitesetting'], function () {
     Route::get('/iletisim', [PageController::class, 'contactUs'])->name('iletisim');
     Route::get('/galeri', [PageController::class, 'gallery'])->name('galeri');
 
+    Auth::routes();
+
+    Route::get('/cikis', [AjaxController::class, 'logout'])->name('cikis');
+
 });
 
-
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
