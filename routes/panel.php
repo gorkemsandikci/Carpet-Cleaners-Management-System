@@ -23,10 +23,10 @@ Route::group(['middleware' => ['panelsetting', 'auth'], 'prefix' => 'panel', 'as
         Route::get('', [CustomerController::class, 'index'])->name('customer.index');
         Route::get('/create', [CustomerController::class, 'create'])->name('customer.create');
         Route::get('/{id}/edit', [CustomerController::class, 'edit'])->name('customer.edit');
+        Route::get('/{id}', [CustomerController::class, 'show'])->name('customer.show');
         Route::post('/store', [CustomerController::class, 'store'])->name('customer.store');
         Route::put('/{id}/update', [CustomerController::class, 'update'])->name('customer.update');
-        Route::delete('/destroy', [CustomerController::class, 'destroy'])->name('customer.destroy');
-        Route::post('/status-update', [CustomerController::class, 'statusUpdate'])->name('customer.status');
+        Route::post('/destroy', [CustomerController::class, 'destroy'])->name('customer.destroy');
         Route::post('/fetch-district', [CustomerController::class, 'fetchDistrict'])->name('fetchDistrict');
     });
 

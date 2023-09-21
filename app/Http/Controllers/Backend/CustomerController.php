@@ -7,7 +7,10 @@ use App\Http\Requests\CustomerRequest;
 use App\Models\Cities;
 use App\Models\Districts;
 use App\Models\Customer;
+use http\Env\Response;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class CustomerController extends Controller
 {
@@ -16,8 +19,13 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        // todo should add paginate
-        $customers = Customer::get();
+        $customers = DB::table('customers AS c')
+            ->select(['c.id', 'c.first_name', 'c.last_name', 'c.gender', 'c.address', 'c.special_notes', 'c.email', 'c.phone', 'ci.name AS city_name', 'di.name AS district_name'])
+            ->where('c.status', '1')
+            ->leftJoin('cities AS ci', 'c.city_id', '=', 'ci.id')
+            ->leftJoin('districts AS di', 'c.district_id', '=', 'di.id')
+            ->get();
+
         return view('backend.pages.customer.index', compact('customers'));
     }
 
@@ -26,7 +34,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        $customers = Customer::get();
+        $customers = Customer::where('status', '1')->get();
         $cities = Cities::get(['name', 'id']);
         return view('backend.pages.customer.edit', compact('customers', 'cities'));
     }
@@ -44,9 +52,8 @@ class CustomerController extends Controller
             'district_id' => $request->district_id,
             'address' => $request->address,
             'special_notes' => $request->special_notes,
-            'email' => $request->email,
             'phone' => $request->phone,
-            'status' => $request->status,
+            'status' => '1',
         ]);
 
         return back()->withSuccess('Müşteri oluşturuldu!');
@@ -58,7 +65,25 @@ class CustomerController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $customer = DB::table('customers AS c')
+            ->select(['c.id', 'c.first_name', 'c.last_name', 'c.gender', 'c.address', 'c.special_notes', 'c.email', 'c.phone', 'ci.name AS city_name', 'di.name AS district_name'])
+            ->where('c.status', '1')
+            ->where('c.id', $id)
+            ->leftJoin('cities AS ci', 'c.city_id', '=', 'ci.id')
+            ->leftJoin('districts AS di', 'c.district_id', '=', 'di.id')
+            ->first();
+
+        return response()->json([
+            'address' => $customer->address,
+            'city_name' => $customer->city_name,
+            'district_name' => $customer->district_name,
+            'email' => $customer->email,
+            'gender' => $customer->gender,
+            'id' => $customer->id,
+            'name' => $customer->first_name . ' ' . $customer->last_name,
+            'phone' => $customer->phone,
+            'special_notes' => $customer->special_notes
+        ]);
     }
 
     /**
@@ -66,7 +91,7 @@ class CustomerController extends Controller
      */
     public function edit(string $id)
     {
-        $customer = Customer::where('id', $id)->first();
+        $customer = Customer::where('id', $id)->where('status', '1')->first();
         $customers = Customer::get();
         $cities = Cities::get();
         $districts = Districts::get(['name', 'id', 'city_id']);
@@ -78,7 +103,7 @@ class CustomerController extends Controller
      */
     public function update(CustomerRequest $request, string $id)
     {
-        $customer = Customer::where('id', $id)->firstOrFail();
+        $customer = Customer::where('id', $id)->where('status', '1')->firstOrFail();
 
         $customer->update([
             'first_name' => $request->first_name,
@@ -90,7 +115,7 @@ class CustomerController extends Controller
             'special_notes' => $request->special_notes,
             'email' => $request->email,
             'phone' => $request->phone,
-            'status' => $request->status,
+            'status' => '1',
         ]);
 
         return back()->withSuccess('Müşteri güncellendi!');
@@ -101,20 +126,13 @@ class CustomerController extends Controller
      */
     public function destroy(Request $request)
     {
-        $customer = Customer::where('id', $request->id)->firstOrFail();
+        $customer = Customer::where('id', $request->id)->where('status', '1')->firstOrFail();
 
-        $customer->delete();
+        $customer->update([
+            'status' => '0',
+        ]);
 
         return response(['error' => false, 'message' => 'Başarıyla Silindi.']);
-    }
-
-    public function statusUpdate(Request $request)
-    {
-        $update = $request->state;
-        $update_check = $update == "false" ? '0' : '1';
-
-        Customer::where('id', $request->id)->update(['status' => $update_check]);
-        return response(['error' => false, 'status' => $update]);
     }
 
     public function fetchDistrict(Request $request)

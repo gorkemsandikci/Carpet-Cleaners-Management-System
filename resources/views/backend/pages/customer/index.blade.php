@@ -25,8 +25,6 @@
                                 <th>İlçe</th>
                                 <th>Adres</th>
                                 <th>Telefon</th>
-                                <th>E-Posta</th>
-                                <th>Durum</th>
                                 <th>İşlem</th>
                             </tr>
                             </thead>
@@ -36,25 +34,18 @@
                                     <tr class="item" item-id="{{ $customer->id }}">
                                         <td>{{ $customer->first_name . ' ' . $customer->last_name }}</td>
 
-                                        <td>{{ $customer->customer->gender ?? null}}</td>
-                                        <td>{{ $customer->city_id }}</td>
-                                        <td>{{ $customer->district_id }}</td>
+                                        <td>{{ $customer->gender === 'male' ? 'Erkek' : ($customer->gender === 'female' ? 'Kadın' : null )}}</td>
+                                        <td>{{ $customer->city_name }}</td>
+                                        <td>{{ $customer->district_name }}</td>
                                         <td>{{ $customer->address }}</td>
                                         <td>{{ $customer->phone }}</td>
-                                        <td>{{ $customer->email }}</td>
-                                        <td>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" class="durum" data-toggle="toggle"
-                                                           data-on="Aktif"
-                                                           data-off="Pasif" {{ $customer->status === '1' ? 'checked' : '' }}>
-                                                </label>
-                                            </div>
-                                        </td>
                                         <td class="d-flex">
+                                            <button class="btn detail-btn btn-info mr-2"
+                                                    customer-item-id="{{ $customer->id }}">Detay
+                                            </button>
                                             <a class="btn btn-primary mr-2"
                                                href="{{ route('panel.customer.edit', $customer->id) }}">Düzenle</a>
-                                            <button type=button class="sil-btn btn btn-danger">Sil</button>
+                                            <button type=button class="delete-btn btn btn-danger">Sil</button>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -65,46 +56,24 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div><!-- the form to be viewed as dialog-->
 
 @endsection
 
 @section('customjs')
     <script>
-        $(document).on('change', '.durum', function (e) {
-            id = $(this).closest('.item').attr('item-id');
-            state = $(this).prop('checked');
-            $.ajax({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-                },
-                type: "POST",
-                url: "{{route('panel.customer.status')}}",
-                data: {
-                    id: id,
-                    state: state
-                },
-                success: function (response) {
-                    if (response.status == 'true') {
-                        alertify.success("Müşteri Aktif Edildi");
-                    } else {
-                        alertify.error("Müşteri Pasif Edildi")
-                    }
-                }
-            });
-        });
 
-        $(document).on('click', '.sil-btn', function (e) {
+        $(document).on('click', '.delete-btn', function (e) {
             e.preventDefault();
             var item = $(this).closest('.item');
             id = item.attr('item-id');
-            alertify.confirm("Silmek istediğinizden emin misiniz?", "Silinen kategoryiye bir daha erişilemez.",
+            alertify.confirm("Silmek istediğinizden emin misiniz?", "Silinen müşteri bilgileri kaybolacaktır.",
                 function () {
                     $.ajax({
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
                         },
-                        type: "DELETE",
+                        type: "POST",
                         url: "{{route('panel.customer.destroy')}}",
                         data: {
                             id: id
@@ -123,6 +92,56 @@
                     alertify.error('İşlem iptal edildi!');
                 });
         });
+
+    </script>
+    <script>
+
+        $(document).on('click', '.detail-btn', function (e) {
+            const customerID = $(this).attr('customer-item-id');
+
+            $.ajax({
+                url: "{{route('panel.customer.show', '')}}" + '/' + customerID,
+                method: 'GET',
+                success: function (customer) {
+                    alertify.alert()
+                        .setting({
+                            message: `
+                <div class="mb-2">
+                    <b>İsim: </b> ${customer.name}
+                </div>
+                <div class="mb-2">
+                    <b>Telefon: </b> ${customer.phone}
+                </div>
+                <div class="mb-2">
+                    <b>Adres: </b> ${customer.address}
+                </div>
+                <div class="mb-2">
+                    <b>Cinsiyet </b> ${customer.gender === 'male' ? 'Erkek' : (customer.gender === 'female' ? 'Kadın' : '')}
+                </div>
+                <div class="mb-2">
+                    <b>E-Posta: </b> ${customer.email ?? '-'}
+                </div>
+                <div class="mb-2">
+                    <b>İl: </b> ${customer.city_name}
+                </div>
+                <div class="mb-2">
+                    <b>İlçe: </b> ${customer.district_name}
+                </div>
+            `,
+                            title: 'Müşteri Detayları',
+                            label: 'Tamam',
+                            onok: function () {
+                                alertify.success('Tamamlandı');
+                            }
+                        }).show();
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+
+        });
+
 
     </script>
 @endsection

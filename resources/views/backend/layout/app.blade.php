@@ -19,7 +19,7 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="{{ asset('backend') }}/css/vertical-layout-light/style.css">
     <link href="{{ asset('backend') }}/css/bootstrap-toggle.min.css" rel="stylesheet">
-    {{--    <link rel="stylesheet" href="{{ asset('backend') }}/css/bootstrap.min.css"/>--}}
+{{--        <link rel="stylesheet" href="{{ asset('backend') }}/css/bootstrap.min.css"/>--}}
     <link rel="stylesheet" href="{{ asset('backend') }}/css/alertify.min.css"/>
     <!-- endinject -->
     <link rel="shortcut icon" href="{{ asset('backend') }}/images/favicon.png"/>

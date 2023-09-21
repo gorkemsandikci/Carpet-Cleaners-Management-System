@@ -59,11 +59,12 @@
                         <div class="form-group">
                             <label for="gender">Cinsiyet</label>
                             @php
-                                $status = $customer->gender ?? '1';
+                                $gender = $customer->gender ?? '1';
                             @endphp
                             <select class="form-control" id="gender" name="gender">
-                                <option value="1" {{$status == '1' ? 'selected' : ''}}>Erkek</option>
-                                <option value="0" {{$status == '0' ? 'selected' : ''}}>Kadın</option>
+                                <option value="other" {{$gender === '1' ? 'selected' : '' }}>Seçiniz</option>
+                                <option value="male" {{$gender === 'male' ? 'selected' : '' }}>Erkek</option>
+                                <option value="female" {{$gender === 'female' ? 'selected' : '' }}>Kadın</option>
                             </select>
                         </div>
 
@@ -74,7 +75,7 @@
                                 @if($cities)
                                     @foreach($cities as $city)
                                         <option
-                                            value="{{ $city->id }}" {{ isset($customer) && $city->id == $customer->city_id ? 'selected' : '' }} >{{ $city->name }}</option>
+                                                value="{{ $city->id }}" {{ isset($customer) && $city->id == $customer->city_id ? 'selected' : '' }} >{{ $city->name }}</option>
                                     @endforeach
                                 @endif
                             </select>
@@ -120,7 +121,8 @@
         });
 
         function getDistricts() {
-            var city_id = $('#city_dd').val();;
+            var city_id = $('#city_dd').val();
+            ;
             $('#district_dd').html('');
             $.ajax({
                 url: "{{ url('/panel/customer/fetch-district') }}",

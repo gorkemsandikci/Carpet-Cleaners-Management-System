@@ -16,6 +16,6 @@ class Customer extends Model
         'address',
         'special_notes',
         'status',
-        'email'
+        'phone'
     ];
 }
