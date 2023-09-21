@@ -6,7 +6,7 @@
         <div class="banner  overlap">
             <div class="bg"><img src="{{ url('/') }}/assets/images/breadcrumb-bg.jpg" alt="{{ $about_us->slug }}"/></div>
             <div class="container">
-                <h1 class="title">{{ $about_us->name }}</h1>
+                <h1 class="title">{{ $about_us->title }}</h1>
                 <nav>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ url('/') }}"><i class="fa fa-home"></i></a></li>

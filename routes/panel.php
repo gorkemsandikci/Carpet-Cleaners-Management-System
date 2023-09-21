@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\AboutController;
 use App\Http\Controllers\Backend\CustomerController;
 use App\Http\Controllers\Backend\DashboardController;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +30,9 @@ Route::group(['middleware' => ['panelsetting', 'auth'], 'prefix' => 'panel', 'as
         Route::post('/destroy', [CustomerController::class, 'destroy'])->name('customer.destroy');
         Route::post('/fetch-district', [CustomerController::class, 'fetchDistrict'])->name('fetchDistrict');
     });
+
+    Route::get('/about', [AboutController::class, 'index'])->name('about.index');
+    Route::post('/about', [AboutController::class, 'update'])->name('about.update');
 
 });
 
