@@ -4,7 +4,7 @@
         <li class="nav-item">
             <a class="nav-link" href="">
                 <i class="icon-grid menu-icon"></i>
-                <span class="menu-title">Dashboard</span>
+                <span class="menu-title">Pano</span>
             </a>
         </li>
 
