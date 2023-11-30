@@ -1,6 +1,7 @@
 -composer create-project laravel/laravel hali-yikama
 -composer install
 -create haliyikama.conf file
+-add vhost to : subl /etc/hosts
 -brew services restart nginx
 -npm install (optional)
 -update .env file db connections
