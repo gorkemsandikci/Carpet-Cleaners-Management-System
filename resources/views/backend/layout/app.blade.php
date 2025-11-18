@@ -22,6 +22,7 @@
 {{--        <link rel="stylesheet" href="{{ asset('backend') }}/css/bootstrap.min.css"/>--}}
     <link rel="stylesheet" href="{{ asset('backend') }}/css/alertify.min.css"/>
     <!-- endinject -->
+    <link rel="stylesheet" href="{{ asset('assets') }}/css/backend-fixes.css"/>
     <link rel="shortcut icon" href="{{ asset('backend') }}/images/favicon.png"/>
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">

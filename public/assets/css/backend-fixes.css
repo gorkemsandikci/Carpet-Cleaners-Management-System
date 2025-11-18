@@ -1,0 +1,360 @@
+/* Backend Sidebar Color Fixes */
+
+/* Sidebar Navigation - Ensure proper contrast */
+.sidebar {
+    background: #1f2937 !important;
+}
+
+.sidebar .nav-link {
+    color: #d1d5db !important;
+    padding: 12px 20px;
+    transition: all 0.3s ease;
+}
+
+.sidebar .nav-link:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+}
+
+.sidebar .nav-link.active {
+    background: rgba(59, 130, 246, 0.2) !important;
+    color: #60a5fa !important;
+    border-left: 3px solid #3b82f6;
+}
+
+.sidebar .nav-link .menu-title {
+    color: inherit !important;
+}
+
+.sidebar .nav-link i {
+    color: inherit !important;
+    opacity: 0.8;
+}
+
+.sidebar .nav-link:hover i,
+.sidebar .nav-link.active i {
+    opacity: 1;
+}
+
+/* Sub-menu items */
+.sidebar .sub-menu .nav-link {
+    padding-left: 50px;
+    color: #9ca3af !important;
+}
+
+.sidebar .sub-menu .nav-link:hover {
+    background: rgba(255, 255, 255, 0.05) !important;
+    color: #d1d5db !important;
+}
+
+.sidebar .sub-menu .nav-link.active {
+    color: #60a5fa !important;
+}
+
+/* Menu arrow */
+.sidebar .menu-arrow {
+    color: #9ca3af !important;
+}
+
+/* Ensure text is visible on cards */
+.card {
+    color: #1f2937 !important;
+}
+
+.card-title {
+    color: #111827 !important;
+}
+
+/* Table text visibility */
+.table {
+    color: #1f2937 !important;
+}
+
+.table thead th {
+    color: #111827 !important;
+    background: #f9fafb !important;
+}
+
+.table tbody td {
+    color: #374151 !important;
+}
+
+/* Form labels */
+label {
+    color: #374151 !important;
+    font-weight: 500;
+}
+
+/* Badge colors */
+.badge {
+    color: #ffffff !important;
+}
+
+/* Alert text */
+.alert {
+    color: inherit !important;
+}
+
+.alert-success {
+    background-color: #d1fae5 !important;
+    border-color: #10b981 !important;
+    color: #065f46 !important;
+}
+
+.alert-danger {
+    background-color: #fee2e2 !important;
+    border-color: #ef4444 !important;
+    color: #991b1b !important;
+}
+
+.alert-warning {
+    background-color: #fef3c7 !important;
+    border-color: #f59e0b !important;
+    color: #92400e !important;
+}
+
+.alert-info {
+    background-color: #dbeafe !important;
+    border-color: #3b82f6 !important;
+    color: #1e40af !important;
+}
+
+/* Global text color fixes - ensure dark text everywhere */
+body {
+    color: #1f2937 !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #111827 !important;
+}
+
+p {
+    color: #374151 !important;
+}
+
+/* Override all text-white classes in backend */
+.text-white {
+    color: #1f2937 !important;
+}
+
+/* Card backgrounds should be light for dark text */
+.card-tale {
+    background: #e0e7ff !important;
+}
+
+.card-dark-blue {
+    background: #dbeafe !important;
+}
+
+.card-light-blue {
+    background: #e0f2fe !important;
+}
+
+.card-light-danger {
+    background: #fee2e2 !important;
+}
+
+/* Ensure all text in colored cards is dark */
+.card-tale .card-body,
+.card-dark-blue .card-body,
+.card-light-blue .card-body,
+.card-light-danger .card-body {
+    color: #1f2937 !important;
+}
+
+.card-tale .card-body p,
+.card-dark-blue .card-body p,
+.card-light-blue .card-body p,
+.card-light-danger .card-body p {
+    color: #374151 !important;
+}
+
+.card-tale .card-body a,
+.card-dark-blue .card-body a,
+.card-light-blue .card-body a,
+.card-light-danger .card-body a {
+    color: #1f2937 !important;
+    font-weight: 600;
+}
+
+.card-tale .card-body a:hover,
+.card-dark-blue .card-body a:hover,
+.card-light-blue .card-body a:hover,
+.card-light-danger .card-body a:hover {
+    color: #111827 !important;
+    text-decoration: underline;
+}
+
+/* Main panel text */
+.main-panel {
+    color: #1f2937 !important;
+}
+
+.main-panel h1,
+.main-panel h2,
+.main-panel h3,
+.main-panel h4,
+.main-panel h5,
+.main-panel h6 {
+    color: #111827 !important;
+}
+
+.main-panel p {
+    color: #374151 !important;
+}
+
+/* Form text */
+.form-control {
+    color: #1f2937 !important;
+}
+
+.form-control::placeholder {
+    color: #9ca3af !important;
+}
+
+/* Links */
+a {
+    color: #3b82f6 !important;
+}
+
+a:hover {
+    color: #2563eb !important;
+}
+
+/* Buttons text */
+.btn {
+    color: #ffffff !important;
+}
+
+.btn-outline-primary,
+.btn-outline-secondary,
+.btn-outline-success,
+.btn-outline-danger,
+.btn-outline-warning,
+.btn-outline-info {
+    color: #1f2937 !important;
+}
+
+/* Badge text - keep white for colored badges */
+.badge-primary,
+.badge-success,
+.badge-danger,
+.badge-warning,
+.badge-info {
+    color: #ffffff !important;
+}
+
+.badge-secondary,
+.badge-light {
+    color: #1f2937 !important;
+}
+
+/* Navbar fixes - ensure all text is visible */
+.navbar {
+    background: #ffffff !important;
+    border-bottom: 1px solid #e5e7eb !important;
+}
+
+.navbar .navbar-nav .nav-link {
+    color: #1f2937 !important;
+}
+
+.navbar .navbar-nav .nav-link:hover {
+    color: #111827 !important;
+}
+
+.navbar .navbar-nav .nav-link span {
+    color: #1f2937 !important;
+}
+
+.navbar .navbar-nav .nav-link i {
+    color: #6b7280 !important;
+}
+
+.navbar .navbar-nav .nav-link:hover i {
+    color: #1f2937 !important;
+}
+
+/* Navbar dropdown */
+.navbar-dropdown {
+    background: #ffffff !important;
+    border: 1px solid #e5e7eb !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+}
+
+.dropdown-item {
+    color: #1f2937 !important;
+}
+
+.dropdown-item:hover {
+    background: #f3f4f6 !important;
+    color: #111827 !important;
+}
+
+.dropdown-header {
+    color: #6b7280 !important;
+    font-weight: 600 !important;
+}
+
+.dropdown-item .preview-subject {
+    color: #1f2937 !important;
+}
+
+.dropdown-item .text-muted {
+    color: #6b7280 !important;
+}
+
+/* Navbar search */
+.navbar .form-control {
+    color: #1f2937 !important;
+    background: #f9fafb !important;
+    border: 1px solid #e5e7eb !important;
+}
+
+.navbar .form-control::placeholder {
+    color: #9ca3af !important;
+}
+
+.navbar .input-group-text {
+    background: #f9fafb !important;
+    border: 1px solid #e5e7eb !important;
+    color: #6b7280 !important;
+}
+
+/* Navbar brand */
+.navbar-brand {
+    color: #1f2937 !important;
+}
+
+/* Language dropdown text */
+#languageDropdown span {
+    color: #1f2937 !important;
+    font-weight: 600;
+}
+
+/* Profile dropdown */
+.nav-profile .nav-link {
+    color: #1f2937 !important;
+}
+
+/* Notification count */
+.count-indicator .count {
+    background: #ef4444 !important;
+    color: #ffffff !important;
+}
+
+/* Icon colors in navbar */
+.navbar .icon-bell,
+.navbar .icon-search,
+.navbar .icon-ellipsis,
+.navbar .icon-menu {
+    color: #6b7280 !important;
+}
+
+.navbar .icon-bell:hover,
+.navbar .icon-search:hover,
+.navbar .icon-ellipsis:hover,
+.navbar .icon-menu:hover {
+    color: #1f2937 !important;
+}
+

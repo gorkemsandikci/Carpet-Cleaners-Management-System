@@ -47,25 +47,25 @@
                     </div>
                     <div class="form-body ">
                         <div class="big-title mb-4">
-                            <h3 class="mb-5">Bize Yazın</h3>
+                            <h3 class="mb-5">{{ __('common.write_to_us') }}</h3>
                         </div>
-                        <form method="post" class="contact-form" data-id="10">
-                            <div class="form-group"><input type="text" class="form-control " name="ad-soyad"
-                                                           placeholder="Ad Soyad"
+                        <form method="post" action="{{ route('contact.store') }}" class="contact-form">
+                            @csrf
+                            <div class="form-group"><input type="text" class="form-control " name="name"
+                                                           placeholder="{{ __('common.name') }}"
                                                            id="" required/></div>
-                            <div class="form-group"><input type="text" class="form-control " name="e-posta"
-                                                           placeholder="E-Posta"
+                            <div class="form-group"><input type="email" class="form-control " name="email"
+                                                           placeholder="{{ __('common.email') }}"
                                                            id="" required/></div>
-                            <div class="form-group"><input type="text" class="form-control " name="konu"
-                                                           placeholder="Konu" id=""
-                                                           required/></div>
-                            <div class="form-group"><textarea name="Mesaj" class="form-control " placeholder="Mesajınız"
+                            <div class="form-group"><input type="text" class="form-control " name="subject"
+                                                           placeholder="{{ __('common.subject') }}" id=""/></div>
+                            <div class="form-group"><textarea name="message" class="form-control " placeholder="{{ __('common.message') }}"
                                                               rows="2"
                                                               id="" required></textarea></div>
                             <div class="form-result"></div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary contact-submit"><i
-                                        class="fa fa-paper-plane mr-1"></i><span>Gönder</span></button>
+                                        class="fa fa-paper-plane mr-1"></i><span>{{ __('common.send') }}</span></button>
                             </div>
                         </form>
                     </div>

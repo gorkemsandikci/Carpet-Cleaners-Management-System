@@ -1,0 +1,119 @@
+/* Image Fixes - Prevent broken images and empty spaces */
+
+/* Hide broken images */
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+img[src=""],
+img:not([src]),
+img[src*="undefined"],
+img[src*="null"] {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Prevent empty image containers from taking space */
+.image:empty,
+.image:has(img[src=""]) {
+    display: none !important;
+}
+
+/* Gallery items without images */
+.gallery .item:has(img[src=""]) {
+    display: none !important;
+}
+
+/* Service items without images */
+.service-item:has(.image:empty) .image {
+    display: none !important;
+}
+
+/* Slider images - hide if broken */
+.swiper-slide .bg img[src=""],
+.swiper-slide .bg img:not([src]) {
+    display: none !important;
+}
+
+.swiper-slide .bg:has(img[src=""]) {
+    background: linear-gradient(135deg, var(--primary-color, #0071e3) 0%, var(--accent-color, #28a745) 100%);
+    min-height: 500px;
+}
+
+/* Icon placeholders - show fallback */
+.icon img[src=""],
+.icon img:not([src]) {
+    display: none !important;
+}
+
+.icon:has(img[src=""]) {
+    background: var(--primary-color, #0071e3);
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon:has(img[src=""])::before {
+    content: "?";
+    font-size: 32px;
+    color: white;
+    font-weight: bold;
+}
+
+/* Section spacing fixes */
+section:empty {
+    display: none !important;
+}
+
+/* Remove extra padding on empty sections */
+section:has(.container:empty) {
+    padding: 0 !important;
+}
+
+/* Breadcrumb image fixes */
+.banner .bg img[src=""] {
+    display: none !important;
+}
+
+.banner .bg:has(img[src=""]) {
+    background: linear-gradient(135deg, #1d1d1f 0%, #374151 100%);
+    min-height: 300px;
+}
+
+/* Contact form image fixes */
+.contact-form img[src=""] {
+    display: none !important;
+}
+
+/* Footer image fixes */
+.footer-3 img[src=""] {
+    display: none !important;
+}
+
+/* Logo fixes */
+.logo img[src=""] {
+    display: none !important;
+}
+
+.logo:has(img[src=""]) {
+    min-width: 120px;
+    min-height: 40px;
+    background: var(--primary-color, #0071e3);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+.logo:has(img[src=""])::before {
+    content: "LOGO";
+    font-size: 14px;
+}
+

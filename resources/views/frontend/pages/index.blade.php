@@ -10,10 +10,9 @@
                         <div class="bg overlay-none"><img src="{{ url('/') }}/assets/uploads/koltuk-7.jpg" alt=""/></div>
                         <div class="content" data-swiper-parallax="-500">
                             <div class="container">
-                                <h2>Koltuk Yıkamada Profesyonel Hizmet</h2><a href="koltuk-yikama.html"
-                                                                              class="btn btn-primary readmore">Detaylı
-                                    Bilgi
-                                    Al!</a>
+                                <h2>{{ $sliders[0]->title ?? 'Profesyonel Hizmet' }}</h2>
+                                <p style="font-size: 21px; margin-bottom: 24px; color: rgba(255,255,255,0.9);">{{ $sliders[0]->content ?? 'Kaliteli hizmet, profesyonel ekip' }}</p>
+                                <a href="{{ $sliders[0]->button_link ?? '#' }}" class="btn btn-primary readmore">{{ $sliders[0]->button_text ?? __('common.get_appointment') }}</a>
                             </div>
                         </div>
                     </div>
@@ -23,9 +22,9 @@
                         <div class="bg overlay-none"><img src="{{ url('/') }}/assets/uploads/koltuk-8.jpg" alt=""/></div>
                         <div class="content" data-swiper-parallax="-500">
                             <div class="container">
-                                <h2>Tüm Eviniz İçin Profesyonel Temizleme</h2><a href="bize-ulasin.html"
-                                                                                 class="btn btn-primary readmore">Randevu
-                                    Al!</a>
+                                <h2>{{ $sliders[1]->title ?? 'Tüm İhtiyaçlarınız İçin Profesyonel Çözümler' }}</h2>
+                                <p style="font-size: 21px; margin-bottom: 24px; color: rgba(255,255,255,0.9);">{{ $sliders[1]->content ?? 'Geniş hizmet yelpazesi' }}</p>
+                                <a href="{{ $sliders[1]->button_link ?? route('iletisim') }}" class="btn btn-primary readmore">{{ $sliders[1]->button_text ?? __('common.get_appointment') }}</a>
                             </div>
                         </div>
                     </div>
@@ -35,10 +34,9 @@
                         <div class="bg overlay-none"><img src="{{ url('/') }}/assets/uploads/koltuk6.jpg" alt=""/></div>
                         <div class="content" data-swiper-parallax="-500">
                             <div class="container">
-                                <h2>Profesyonel Ekip, Profesyonel Hizmet!</h2><a href="bize-ulasin.html"
-                                                                                 class="btn btn-primary readmore">Randevu
-                                    Al!</a>
-
+                                <h2>{{ $sliders[2]->title ?? 'Profesyonel Ekip, Profesyonel Hizmet!' }}</h2>
+                                <p style="font-size: 21px; margin-bottom: 24px; color: rgba(255,255,255,0.9);">{{ $sliders[2]->content ?? 'Uzman kadromuz ile hizmetinizdeyiz' }}</p>
+                                <a href="{{ $sliders[2]->button_link ?? route('iletisim') }}" class="btn btn-primary readmore">{{ $sliders[2]->button_text ?? __('common.get_appointment') }}</a>
                             </div>
                         </div>
                     </div>
@@ -55,53 +53,73 @@
             <div class="swiper-button-prev swiper-button-white nav-btn"></div>
             <div class="swiper-button-next swiper-button-white nav-btn"></div>
         </section>
-        <section class="about-2">
-            <div class="bg"><img src="{{ url('/') }}/assets/uploads/slider1-3.png" class="img-fluid"
-                                 alt="Padişah&Beyefendi Halı Koltuk Perde Yıkama"/></div>
+        <section class="about-2" style="padding: 120px 0; background: #ffffff;">
             <div class="container">
-                <div class="content">
-                    <div>
-                        <div class="big-title">
-                            <h5>MÜKEMMEL SONUÇLAR İÇİN</h5>
-                            <h3>Padişah&Beyefendi Halı Koltuk Perde Yıkama</h3>
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-5 mb-lg-0">
+                        @if($aboutContent && $aboutContent->image)
+                        <div style="border-radius: 18px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.12);">
+                            <img src="{{ asset('storage/' . $aboutContent->image) }}" class="img-fluid" alt="{{ $aboutContent->title ?? '' }}"/>
                         </div>
-                        <p>En İyi Halı Yıkama Firması olarak Yerinde Halı Yıkama, Buharlı Koltuk ve Yatak Yıkama ile
-                            Perde
-                            başta olmak üzere Chester Koltuk Temizleme tüm mobilya ve eşyalarınız için özel çözümler
-                            sunuyoruz.Profesyonel ekibimiz ile Eşyalarınızın türüne özel son teknoloji cihazlar, uygun
-                            organik
-                            temizlik maddeleri ve uzman personel hizmet veriyoruz. Hızlı Teslimat Güvenilir Hizmet
-                            sunuyoruz
-                            7/24 ücretsiz randevu alabilirsiniz. İstanbul’un tamamında birçok ekibimiz Aynı Gün Kuruma
-                            Garantili güvencemiz ile hizmetinizdeyiz.</p>
+                        @else
+                        <div style="border-radius: 18px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.12);">
+                            <img src="{{ url('/') }}/assets/uploads/slider1-3.png" class="img-fluid" alt="{{ $settings['site_name'] ?? config('app.name') }}"/>
+                        </div>
+                        @endif
                     </div>
-                    <div class="row row-cols-1 row-cols-lg-3 row-cols-sm-2 justify-content-center">
-                        <div class="col"><a href="javascript:;">
-                                <div class="feature"><i class="fa fa-calendar"></i>
-                                    <h4>Randevu Alın</h4>
-                                    <p>Size en uygun gün ve saat için randevu alın. Ekibimiz tam zamanında orda
-                                        olur.</p>
-                                </div>
-                            </a></div>
-                        <div class="col"><a href="javascript:;">
-                                <div class="feature"><i class="fa fa-faucet"></i>
-                                    <h4>Yıkama İşlemi Yapılsın</h4>
-                                    <p>Eşyanıza özel cihazlar ve temizleyiciler ile uzman ekibimiz detaylı temizliği
-                                        yapsın.</p>
-                                </div>
-                            </a></div>
-                        <div class="col"><a href="javascript:;">
-                                <div class="feature"><i class="fa fa-smile"></i>
-                                    <h4>Memnuniyetinizi Paylaşın</h4>
-                                    <p>İşlem sonrası diğer müşterilerimiz gibi sizde mutluluğunuzu arkadaşlarınızla
-                                        paylaşın.</p>
-                                </div>
-                            </a></div>
+                    <div class="col-lg-6">
+                        <div class="big-title" style="text-align: left;">
+                            <h5 style="font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary, #86868b); margin-bottom: 12px;">{{ __('common.excellence') }}</h5>
+                            <h3 style="font-size: 56px; font-weight: 700; letter-spacing: -0.05em; line-height: 1.05; margin-bottom: 16px;">{{ $aboutContent->title ?? $settings['site_name'] ?? config('app.name') }}</h3>
+                        </div>
+                        <p style="font-size: 21px; line-height: 1.47059; color: var(--text-secondary, #86868b); margin-bottom: 32px;">{{ $aboutContent->content ?? 'Profesyonel ekibimiz ile eşyalarınızın türüne özel son teknoloji cihazlar, uygun temizlik maddeleri ve uzman personel hizmet veriyoruz. Hızlı teslimat ve güvenilir hizmet sunuyoruz. 7/24 ücretsiz randevu alabilirsiniz. Geniş hizmet ağımız ve garantili çalışma prensibimiz ile hizmetinizdeyiz.' }}</p>
+                        <a href="{{ route('hakkimizda') }}" class="btn btn-primary" style="font-size: 17px; padding: 12px 22px;">{{ __('common.learn_more') }}</a>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="section-big main-color">
+        
+        <!-- Features Section - Apple Style -->
+        <section style="padding: 120px 0; background: #f5f5f7;">
+            <div class="container">
+                <div class="row row-cols-1 row-cols-lg-3 row-cols-sm-2 justify-content-center">
+                    @if(isset($features) && $features->count() > 0)
+                        @foreach($features as $feature)
+                        <div class="col mb-4">
+                            <div class="feature">
+                                <i class="fa fa-{{ $loop->iteration == 1 ? 'calendar' : ($loop->iteration == 2 ? 'faucet' : 'heart') }}"></i>
+                                <h4>{{ $feature->title }}</h4>
+                                <p>{{ $feature->content }}</p>
+                            </div>
+                        </div>
+                        @endforeach
+                    @else
+                        <div class="col mb-4">
+                            <div class="feature">
+                                <i class="fa fa-calendar"></i>
+                                <h4>{{ __('common.get_appointment') }}</h4>
+                                <p>{{ __('common.appointment_description') }}</p>
+                            </div>
+                        </div>
+                        <div class="col mb-4">
+                            <div class="feature">
+                                <i class="fa fa-faucet"></i>
+                                <h4>{{ __('common.professional_service') }}</h4>
+                                <p>{{ __('common.service_description') }}</p>
+                            </div>
+                        </div>
+                        <div class="col mb-4">
+                            <div class="feature">
+                                <i class="fa fa-heart"></i>
+                                <h4>{{ __('common.satisfaction') }}</h4>
+                                <p>{{ __('common.satisfaction_description') }}</p>
+                            </div>
+                        </div>
+                    @endif
+                </div>
+            </div>
+        </section>
+        <section class="section-big main-color" style="padding: 80px 0; background: #f5f5f7;">
             <div class="container"> 
                 <div class="row">
                     <div class="col-md-12 pb-20 text-center">
@@ -116,7 +134,13 @@
                     <div class="col-md-4">
                         <ul class="i-list medium">
                             <li class="i-list-item">
-                                <div class="icon"><img src="{{ url('/') }}/assets/uploads/icon-1.png" style="width:70px"/></div>
+                                <div class="icon">
+                                    @if(file_exists(public_path('assets/uploads/icon-1.png')))
+                                    <img src="{{ url('/') }}/assets/uploads/icon-1.png" style="width:70px" alt=""/>
+                                    @else
+                                    <i class="fa fa-cog" style="font-size: 48px; color: var(--primary-color, #0071e3);"></i>
+                                    @endif
+                                </div>
                                 <div class="icon-content">
                                     <h4 class="title">Özel Makina<br/>
                                         Hizmeti</h4>
@@ -127,7 +151,13 @@
                                 <div class="iconlist-timeline"> </div>
                             </li>
                             <li class="i-list-item">
-                                <div class="icon"><img src="{{ url('/') }}/assets/uploads/icon-2.png" style="width:70px"/></div>
+                                <div class="icon">
+                                    @if(file_exists(public_path('assets/uploads/icon-2.png')))
+                                    <img src="{{ url('/') }}/assets/uploads/icon-2.png" style="width:70px" alt=""/>
+                                    @else
+                                    <i class="fa fa-spray-can" style="font-size: 48px; color: var(--primary-color, #0071e3);"></i>
+                                    @endif
+                                </div>
                                 <div class="icon-content">
                                     <h4 class="title">Özel Deterjan Hizmeti</h4>
                                     <p>Profesyonel doğal leke çıkarıcılarla deterjanlar ile koltuk yıkama hizmetinde
@@ -140,7 +170,13 @@
                     <div class="col-md-4">
                         <ul class="i-list medium">
                             <li class="i-list-item">
-                                <div class="icon"><img src="{{ url('/') }}/assets/uploads/icon-3.png" style="width:70px"/></div>
+                                <div class="icon">
+                                    @if(file_exists(public_path('assets/uploads/icon-3.png')))
+                                    <img src="{{ url('/') }}/assets/uploads/icon-3.png" style="width:70px" alt=""/>
+                                    @else
+                                    <i class="fa fa-shield-alt" style="font-size: 48px; color: var(--primary-color, #0071e3);"></i>
+                                    @endif
+                                </div>
                                 <div class="icon-content">
                                     <h4 class="title">Özel Dezenfeksiyon Hizmeti</h4>
                                     <p class="sub-title">Buharlı Temizlik kimyasalın kullanılmadığı doğal temizlik
@@ -152,7 +188,13 @@
                                 <div class="iconlist-timeline"> </div>
                             </li>
                             <li class="i-list-item">
-                                <div class="icon"><img src="{{ url('/') }}/assets/uploads/icon-4.png" style="width:70px"/></div>
+                                <div class="icon">
+                                    @if(file_exists(public_path('assets/uploads/icon-4.png')))
+                                    <img src="{{ url('/') }}/assets/uploads/icon-4.png" style="width:70px" alt=""/>
+                                    @else
+                                    <i class="fa fa-wind" style="font-size: 48px; color: var(--primary-color, #0071e3);"></i>
+                                    @endif
+                                </div>
                                 <div class="icon-content">
                                     <h4 class="title">Özel Kurutma Hizmeti</h4>
                                     <p>Bakterilerden tamamen arındırıldığında. Alanında en iyisi olan makinalarımız
@@ -167,7 +209,13 @@
                     <div class="col-md-4">
                         <ul class="i-list medium">
                             <li class="i-list-item">
-                                <div class="icon"><img src="{{ url('/') }}/assets/uploads/icon-5.png" style="width:70px"/></div>
+                                <div class="icon">
+                                    @if(file_exists(public_path('assets/uploads/icon-5.png')))
+                                    <img src="{{ url('/') }}/assets/uploads/icon-5.png" style="width:70px" alt=""/>
+                                    @else
+                                    <i class="fa fa-broom" style="font-size: 48px; color: var(--primary-color, #0071e3);"></i>
+                                    @endif
+                                </div>
                                 <div class="icon-content">
                                     <h4 class="title">Özel Leke Çıkarma Hizmeti</h4>
                                     <p class="sub-title">Yıkama işlemlerini sağlarken sadece lekelerden kurtulabilmeniz
@@ -180,7 +228,13 @@
                                 <div class="iconlist-timeline"> </div>
                             </li>
                             <li class="i-list-item">
-                                <div class="icon"><img src="{{ url('/') }}/assets/uploads/icon-6.png" style="width:70px"/></div>
+                                <div class="icon">
+                                    @if(file_exists(public_path('assets/uploads/icon-6.png')))
+                                    <img src="{{ url('/') }}/assets/uploads/icon-6.png" style="width:70px" alt=""/>
+                                    @else
+                                    <i class="fa fa-tshirt" style="font-size: 48px; color: var(--primary-color, #0071e3);"></i>
+                                    @endif
+                                </div>
                                 <div class="icon-content">
                                     <h4 class="title">Özel Kumaş Hizmeti</h4>
                                     <p>Koltuklarınızda bulunan kumaşlara zara gelmemesi, Özelliğinin ve Yeni satın almış
@@ -195,7 +249,7 @@
                 </div>
             </div>
         </section>
-        <section class="services-2 full">
+        <section class="services-2 full" style="padding: 120px 0; background: #ffffff;">
             <div class="big-title text-center">
                 <h5>PROFESYONEL OLARAK SUNDUĞUMUZ</h5>
                 <h3>HİZMETLER</h3>
@@ -207,10 +261,15 @@
                             <div class="swiper-slide">
                                 <div class="slide">
                                     <div class="item">
-                                        <div class="image"><img src="{{ url('/').$service->image }}" alt="{{ $service->slug }}"/></div>
+                                        @if($service->image)
+                                        <div class="image"><img src="{{ asset('storage/' . $service->image) }}" alt="{{ $service->slug }}"/></div>
+                                        @endif
                                         <div class="content">
                                             <h4>{{ $service->name }}</h4>
-                                            <p>{{ $service->short_text }}.</p><a href="{{  url('/').'/'.$service->slug }}" class="readmore">Devamını Oku</a>
+                                            @if($service->short_text)
+                                            <p>{{ $service->short_text }}</p>
+                                            @endif
+                                            <a href="{{ route('service.detail', $service->slug) }}" class="readmore">{{ __('common.read_more') }}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -222,7 +281,7 @@
             </div>
         </section>
 
-        <section class="faq">
+        <section class="faq" style="padding: 80px 0; background: #ffffff;">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 pr-lg-5">
@@ -299,12 +358,16 @@
                         </div>
                     </div>
                     <div class="col-lg-6 d-none d-lg-block">
-                        <div class="image"><img src="{{ url('/') }}/assets/uploads/sss1.jpg" alt="SIK SORULAN SORULAR"/></div>
+                        @if(file_exists(public_path('assets/uploads/sss1.jpg')))
+                        <div class="image" style="border-radius: 18px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.12);">
+                            <img src="{{ url('/') }}/assets/uploads/sss1.jpg" class="img-fluid" alt="SIK SORULAN SORULAR"/>
+                        </div>
+                        @endif
                     </div>
                 </div>
             </div>
         </section>
-        <section class="counters-2">
+        <section class="counters-2" style="padding: 80px 0; background: #f5f5f7;">
             <div class="container">
                 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
                     <div class="col">

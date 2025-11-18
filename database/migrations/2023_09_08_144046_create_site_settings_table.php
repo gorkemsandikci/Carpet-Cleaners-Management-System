@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('site_settings', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('company_id')->nullable()->constrained()->onDelete('cascade');
             $table->string('name');
+            $table->string('type')->default('text');
+            $table->string('group')->default('general');
             $table->longText('data')->nullable();
             $table->timestamps();
         });

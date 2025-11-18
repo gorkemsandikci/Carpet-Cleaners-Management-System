@@ -20,8 +20,12 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
-            CustomerSeeder::class,
+            CompanySeeder::class,
+            UserSeeder::class,
             SiteSettingSeeder::class,
+            HomepageContentSeeder::class,
+            GallerySeeder::class,
+            CustomerSeeder::class,
             CitiesSeeder::class,
             DistrictsSeeder::class,
             ServiceSeeder::class,

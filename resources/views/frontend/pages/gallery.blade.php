@@ -26,7 +26,7 @@
                                         <div class="yt">
                                             <iframe width="360" height="239"
                                                     src="https://www.youtube.com/embed/7XdCtZ2tLmk"
-                                                    title="Karcher Buharlı Koltuk Yıkama - Padişah&Beyefendi Halı Koltuk Perde Yıkama"
+                                                    title="Professional Service"
                                                     frameborder="0"
                                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                                     allowfullscreen></iframe>
@@ -36,7 +36,7 @@
                                         <div class="yt">
                                             <iframe width="360" height="239"
                                                     src="https://www.youtube.com/embed/goY1AN84efQ"
-                                                    title="İşyeri Koltuk, Sandalye Yıkama - Padişah&Beyefendi Halı Koltuk Perde Yıkama"
+                                                    title="Professional Service"
                                                     frameborder="0"
                                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                                     allowfullscreen></iframe>
@@ -46,7 +46,7 @@
                                         <div class="yt">
                                             <iframe width="360" height="239"
                                                     src="https://www.youtube.com/embed/t5eYVzfs_fI"
-                                                    title="Dumankaya Konsept                      Padişah&Beyefendi Halı Koltuk Perde Yıkama"
+                                                    title="Professional Service"
                                                     frameborder="0"
                                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                                     allowfullscreen></iframe>
@@ -56,7 +56,7 @@
                                         <div class="yt">
                                             <iframe width="360" height="239"
                                                     src="https://www.youtube.com/embed/_jymqxTdya4"
-                                                    title="İstanbul Kaliteli Koltuk Yıkama - Padişah&Beyefendi Halı Koltuk Perde Yıkama"
+                                                    title="Professional Service"
                                                     frameborder="0"
                                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                                     allowfullscreen></iframe>
@@ -66,7 +66,7 @@
                                         <div class="yt">
                                             <iframe width="360" height="239"
                                                     src="https://www.youtube.com/embed/s2pPUDJQ6aQ"
-                                                    title="Mall Of İstanbul Koltuk Yıkama - Padişah&Beyefendi Halı Koltuk Perde Yıkama"
+                                                    title="Professional Service"
                                                     frameborder="0"
                                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                                     allowfullscreen></iframe>
@@ -76,7 +76,7 @@
                                         <div class="yt">
                                             <iframe width="360" height="239"
                                                     src="https://www.youtube.com/embed/yHD3bN_7N0w"
-                                                    title="Yatak Yıkama - Padişah&Beyefendi Halı Koltuk Perde Yıkama"
+                                                    title="Professional Service"
                                                     frameborder="0"
                                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                                     allowfullscreen></iframe>
@@ -86,7 +86,7 @@
                                         <div class="yt">
                                             <iframe width="360" height="239"
                                                     src="https://www.youtube.com/embed/sLNXG_fluns"
-                                                    title="Buharlı Koltuk Yıkama - Padişah&Beyefendi Halı Koltuk Perde Yıkama"
+                                                    title="Professional Service"
                                                     frameborder="0"
                                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                                     allowfullscreen></iframe>
@@ -96,7 +96,7 @@
                                         <div class="yt">
                                             <iframe width="360" height="239"
                                                     src="https://www.youtube.com/embed/_RgHTIso8zg"
-                                                    title="Başakşehir Koltuk Yıkama - Padişah&Beyefendi Halı Koltuk Perde Yıkama"
+                                                    title="Professional Service"
                                                     frameborder="0"
                                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                                     allowfullscreen></iframe>
@@ -106,7 +106,7 @@
                                         <div class="yt">
                                             <iframe width="360" height="239"
                                                     src="https://www.youtube.com/embed/0EyLiSuq-eU"
-                                                    title="Sandalye Yıkama - Padişah&Beyefendi Halı Koltuk Perde Yıkama"
+                                                    title="Professional Service"
                                                     frameborder="0"
                                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                                     allowfullscreen></iframe>

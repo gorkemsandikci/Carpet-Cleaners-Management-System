@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('abouts', function (Blueprint $table) {
             $table->id();
-            $table->string('key') -> nullable();
-            $table->string('name') -> nullable();
-            $table->string('title') -> nullable();
-            $table->string('slug') -> nullable();
-            $table->text('content') -> nullable();
+            $table->foreignId('company_id')->nullable()->constrained()->onDelete('cascade');
+            $table->string('key')->nullable();
+            $table->string('name')->nullable();
+            $table->string('title')->nullable();
+            $table->string('slug')->nullable();
+            $table->text('content')->nullable();
             $table->timestamps();
         });
     }

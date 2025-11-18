@@ -6,18 +6,231 @@
 <head>
     <base/>
     <meta charset="UTF-8"/>
-    <meta name="description"
-          content="İstanbul Koltuk Yıkama, Buharlı Koltuk Yıkama ve Leke Çıkarma alanında uzmanlaşmış bir temizlik şirketidir">
-    <meta name="keywords" content="">
+    <meta name="description" content="{{ $settings['meta_description'] ?? 'Company Description' }}">
+    <meta name="keywords" content="{{ $settings['meta_keywords'] ?? '' }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Padişah&Beyefendi Halı Koltuk Perde Yıkama</title>
-    <link rel="shortcut icon" href="{{ url('/') }}/assets/uploads/vadi-koltuk-yikama-v.1.3-1.jpg" type="image/x-icon"/>
+    <title>{{ $settings['meta_title'] ?? ($settings['site_name'] ?? 'Website') }}</title>
+    @if(isset($settings['site_favicon']) && $settings['site_favicon'])
+        <link rel="shortcut icon" href="{{ asset('storage/' . $settings['site_favicon']) }}" type="image/x-icon"/>
+    @else
+        <link rel="shortcut icon" href="{{ url('/') }}/assets/uploads/vadi-koltuk-yikama-v.1.3-1.jpg" type="image/x-icon"/>
+    @endif
+    <style>
+        :root {
+            /* Main Colors */
+            --primary-color: {{ $settings['primary_color'] ?? '#007bff' }};
+            --secondary-color: {{ $settings['secondary_color'] ?? '#6c757d' }};
+            --accent-color: {{ $settings['accent_color'] ?? '#28a745' }};
+            --text-primary: {{ $settings['text_primary'] ?? '#212529' }};
+            --text-secondary: {{ $settings['text_secondary'] ?? '#6c757d' }};
+            
+            /* Alternative Colors */
+            --success-color: {{ $settings['success_color'] ?? '#28a745' }};
+            --warning-color: {{ $settings['warning_color'] ?? '#ffc107' }};
+            --danger-color: {{ $settings['danger_color'] ?? '#dc3545' }};
+            --info-color: {{ $settings['info_color'] ?? '#17a2b8' }};
+            
+            /* Shadow Colors */
+            --shadow-color: {{ $settings['shadow_color'] ?? '#000000' }};
+            --shadow-opacity: {{ $settings['shadow_opacity'] ?? '0.15' }};
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, {{ $settings['shadow_opacity'] ?? '0.15' }});
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, {{ $settings['shadow_opacity'] ?? '0.15' }});
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, {{ $settings['shadow_opacity'] ?? '0.15' }});
+            
+            /* Button Colors */
+            --button-primary: {{ $settings['button_primary'] ?? '#007bff' }};
+            --button-primary-hover: {{ $settings['button_primary_hover'] ?? '#0056b3' }};
+            --button-secondary: {{ $settings['button_secondary'] ?? '#6c757d' }};
+            --button-text: {{ $settings['button_text'] ?? '#ffffff' }};
+            
+            /* Background Colors */
+            --header-bg: {{ $settings['header_background'] ?? '#ffffff' }};
+            --footer-bg: {{ $settings['footer_background'] ?? '#343a40' }};
+            --body-bg: {{ $settings['body_background'] ?? '#ffffff' }};
+            --section-bg: {{ $settings['section_background'] ?? '#f8f9fa' }};
+            
+            /* Modern Gradients */
+            --gradient-primary: linear-gradient(135deg, {{ $settings['primary_color'] ?? '#007bff' }} 0%, {{ $settings['accent_color'] ?? '#28a745' }} 100%);
+            --gradient-secondary: linear-gradient(135deg, {{ $settings['secondary_color'] ?? '#6c757d' }} 0%, {{ $settings['primary_color'] ?? '#007bff' }} 100%);
+        }
+        
+        /* Modern Button Styles with Gradient */
+        .btn-primary, .big-button {
+            background: var(--button-primary) !important;
+            border-color: var(--button-primary) !important;
+            color: var(--button-text) !important;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-sm);
+            border-radius: 10px;
+            font-weight: 600;
+            padding: 14px 28px;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 14px;
+        }
+        
+        .btn-primary::before, .big-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn-primary:hover::before, .big-button:hover::before {
+            left: 100%;
+        }
+        
+        .btn-primary:hover, .big-button:hover {
+            background: var(--button-primary-hover) !important;
+            border-color: var(--button-primary-hover) !important;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-primary:active, .big-button:active {
+            transform: translateY(-1px) scale(0.98);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        /* Modern Card Styles with Gradient Border */
+        .card, .panel {
+            border-radius: 16px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            overflow: hidden;
+            position: relative;
+            background: white;
+        }
+        
+        .card::before, .panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card:hover::before, .panel:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .card:hover, .panel:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-6px) scale(1.01);
+        }
+        
+        /* Header Modernization with Glass Effect */
+        .header-3 {
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .header-3 .top-bar {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+        }
+        
+        /* Footer Modernization */
+        .footer-3 {
+            background: var(--footer-bg) !important;
+        }
+        
+        /* Section Backgrounds */
+        section {
+            background: var(--section-bg);
+        }
+        
+        /* Modern Links */
+        a {
+            color: var(--primary-color);
+            transition: color 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--button-primary-hover);
+        }
+        
+        /* Modern Input Fields with Floating Label Effect */
+        .form-control {
+            border-radius: 10px;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 14px 18px;
+            background: #ffffff;
+            font-size: 15px;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.1), var(--shadow-sm);
+            outline: none;
+            transform: translateY(-1px);
+            background: #ffffff;
+        }
+        
+        .form-control::placeholder {
+            color: var(--text-secondary);
+            opacity: 0.6;
+        }
+        
+        /* Modern Badges */
+        .badge {
+            border-radius: 6px;
+            padding: 6px 12px;
+            font-weight: 600;
+        }
+        
+        /* Smooth Animations */
+        * {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+        
+        /* Modern Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--section-bg);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--button-primary-hover);
+        }
+    </style>
     <link rel="stylesheet" href="{{ url('/') }}/assets/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="{{ url('/') }}/assets/css/fontawesome.css"/>
     <link rel="stylesheet" href="{{ url('/') }}/assets/css/style061d.css?v=1.3.21"/><!-- swiper -->
     <link rel="stylesheet" href="{{ url('/') }}/assets/css/swiper-bundle.min.css"/><!-- light gallery -->
     <link rel="stylesheet" href="{{ url('/') }}/assets/css/lightgallery.css"/>
     <link rel="stylesheet" href="{{ url('/') }}/assets/css/index.css"/>
+    <link rel="stylesheet" href="{{ url('/') }}/assets/css/modern-theme.css"/>
+    <link rel="stylesheet" href="{{ url('/') }}/assets/css/apple-inspired.css"/>
+    <link rel="stylesheet" href="{{ url('/') }}/assets/css/image-fixes.css"/>
+    <link rel="stylesheet" href="{{ url('/') }}/assets/css/frontend-text-fixes.css"/>
     <meta name="google-site-verification" content="qD05B_kpyU3mFXR1Ip6Oo8ZLm6Yr-kvH-Yde-8rSbDE"/>
     <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
@@ -36,8 +249,14 @@
 </head>
 
 <body>
-<div id="preloader"><img src="{{ url('/') }}/assets/uploads/w-logo.png" class="logo" alt="Padişah&Beyefendi Halı Koltuk Perde Yıkama"/><i
-        class="fa fa-circle-notch fa-spin"></i></div>
+<div id="preloader">
+    @if(isset($settings['logo']) && $settings['logo'])
+        <img src="{{ asset('storage/' . $settings['logo']) }}" class="logo" alt="{{ $settings['site_name'] ?? config('app.name') }}"/>
+    @else
+        <img src="{{ url('/') }}/assets/uploads/w-logo.png" class="logo" alt="{{ $settings['site_name'] ?? config('app.name') }}"/>
+    @endif
+    <i class="fa fa-circle-notch fa-spin"></i>
+</div>
 
 @include('frontend.inc.header')
 
@@ -67,7 +286,7 @@
 <script src="{{ url('/') }}/assets/js/accordion.js"></script><!-- swiper -->
 <script src="{{ url('/') }}/assets/js/swiper-bundle.min.js"></script>
 <script>const instance = axios.create({
-        baseURL: 'https://vadikoltukyikama.com/api/v1/',
+        baseURL: '{{ url('/') }}/api/v1/',
         headers: {'Content-Type': 'application/json', 'Accept-Language': 'tr', 'Override-Language': 'tr',}
     });
     var swiper = new Swiper(".slider, .slider-2", {
@@ -160,8 +379,9 @@
             height="0" width="0"
             style="display:none;visibility:hidden"></iframe>
 </noscript><!-- End Google Tag Manager (noscript) -->
+@if(isset($settings['whatsapp']) && $settings['whatsapp'])
 <div><a
-        href="https://web.whatsapp.com/send?phone=905322157205&amp;text=Merhaba%20vadikoltukyikama.com%20Web%20Sitenizden%20Ula%c5%9f%c4%b1yorum.%20Yard%c4%b1mc%c4%b1%20Olabilir%20misiniz?"
+        href="https://web.whatsapp.com/send?phone={{ preg_replace('/[^0-9]/', '', $settings['whatsapp']) }}&amp;text={{ urlencode('Merhaba, ' . ($settings['site_name'] ?? '') . ' Web Sitenizden Ulaşıyorum. Yardımcı Olabilir misiniz?') }}"
         class="whatsapp-icon" target="_blank"><img src="{{ url('/') }}/assets/uploads/whatsapp.png"></a></div>
 <script>
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
@@ -171,8 +391,11 @@
         el.attr('href', newUrl);
     }
 </script>
-<div><a href="tel://05322157205" class="phone-icon d-lg-none"><img src="{{ url('/') }}/assets/uploads/phone.png"
-                                                                   class="pb-2"><span>Hemen Ara</span></a></div>
+@endif
+@if(isset($settings['phone']) && $settings['phone'])
+<div><a href="tel://{{ preg_replace('/[^0-9+]/', '', $settings['phone']) }}" class="phone-icon d-lg-none"><img src="{{ url('/') }}/assets/uploads/phone.png"
+                                                                   class="pb-2"><span>{{ __('common.call_now') }}</span></a></div>
+@endif
 </body>
 
 

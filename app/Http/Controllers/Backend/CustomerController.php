@@ -17,8 +17,11 @@ class CustomerController extends Controller
      */
     public function index()
     {
+        $companyId = auth()->user()->company_id;
+        
         $customers = DB::table('customers AS c')
             ->select(['c.id', 'c.first_name', 'c.last_name', 'c.gender', 'c.address', 'c.special_notes', 'c.email', 'c.phone', 'ci.name AS city_name', 'di.name AS district_name'])
+            ->where('c.company_id', $companyId)
             ->where('c.status', '1')
             ->leftJoin('cities AS ci', 'c.city_id', '=', 'ci.id')
             ->leftJoin('districts AS di', 'c.district_id', '=', 'di.id')
@@ -42,7 +45,10 @@ class CustomerController extends Controller
      */
     public function store(CustomerRequest $request)
     {
+        $companyId = auth()->user()->company_id;
+        
         Customer::create([
+            'company_id' => $companyId,
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'gender' => $request->gender,
@@ -51,10 +57,11 @@ class CustomerController extends Controller
             'address' => $request->address,
             'special_notes' => $request->special_notes,
             'phone' => $request->phone,
+            'email' => $request->email ?? null,
             'status' => '1',
         ]);
 
-        return back()->withSuccess('Müşteri oluşturuldu!');
+        return back()->withSuccess('Customer created successfully!');
 
     }
 
@@ -63,8 +70,11 @@ class CustomerController extends Controller
      */
     public function show(string $id)
     {
+        $companyId = auth()->user()->company_id;
+        
         $customer = DB::table('customers AS c')
             ->select(['c.id', 'c.first_name', 'c.last_name', 'c.gender', 'c.address', 'c.special_notes', 'c.email', 'c.phone', 'ci.name AS city_name', 'di.name AS district_name'])
+            ->where('c.company_id', $companyId)
             ->where('c.status', '1')
             ->where('c.id', $id)
             ->leftJoin('cities AS ci', 'c.city_id', '=', 'ci.id')
@@ -89,8 +99,10 @@ class CustomerController extends Controller
      */
     public function edit(string $id)
     {
-        $customer = Customer::where('id', $id)->where('status', '1')->first();
-        $customers = Customer::get();
+        $companyId = auth()->user()->company_id;
+        
+        $customer = Customer::where('id', $id)->where('company_id', $companyId)->where('status', '1')->firstOrFail();
+        $customers = Customer::where('company_id', $companyId)->get();
         $cities = Cities::get();
         $districts = Districts::get(['name', 'id', 'city_id']);
         return view('backend.pages.customer.edit', compact('customer', 'customers', 'cities', 'districts'));
@@ -101,7 +113,9 @@ class CustomerController extends Controller
      */
     public function update(CustomerRequest $request, string $id)
     {
-        $customer = Customer::where('id', $id)->where('status', '1')->firstOrFail();
+        $companyId = auth()->user()->company_id;
+        
+        $customer = Customer::where('id', $id)->where('company_id', $companyId)->where('status', '1')->firstOrFail();
 
         $customer->update([
             'first_name' => $request->first_name,
@@ -124,7 +138,9 @@ class CustomerController extends Controller
      */
     public function destroy(Request $request)
     {
-        $customer = Customer::where('id', $request->id)->where('status', '1')->firstOrFail();
+        $companyId = auth()->user()->company_id;
+        
+        $customer = Customer::where('id', $request->id)->where('company_id', $companyId)->where('status', '1')->firstOrFail();
 
         $customer->update([
             'status' => '0',

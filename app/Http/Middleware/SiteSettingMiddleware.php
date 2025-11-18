@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Company;
 use App\Models\SiteSetting;
 use Closure;
 use Illuminate\Http\Request;
@@ -16,7 +17,18 @@ class SiteSettingMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $settings = SiteSetting::pluck('data', 'name')->toArray();
+        // Get company ID from user or default to first company
+        $companyId = auth()->check() && auth()->user()->company_id 
+            ? auth()->user()->company_id 
+            : Company::first()?->id;
+
+        if ($companyId) {
+            $settings = SiteSetting::where('company_id', $companyId)
+                ->pluck('data', 'name')
+                ->toArray();
+        } else {
+            $settings = [];
+        }
 
         view()->share(['settings' => $settings]);
 

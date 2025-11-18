@@ -4,13 +4,13 @@
 
     <main>
         <div class="banner  overlap">
-            <div class="bg"><img src="{{ url('/') }}/assets/images/breadcrumb-bg.jpg" alt="{{ $about_us->slug }}"/></div>
+            <div class="bg"><img src="{{ url('/') }}/assets/images/breadcrumb-bg.jpg" alt="{{ $about_us->slug ?? 'about-us' }}"/></div>
             <div class="container">
-                <h1 class="title">{{ $about_us->title }}</h1>
+                <h1 class="title">{{ $about_us->title ?? 'About Us' }}</h1>
                 <nav>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ url('/') }}"><i class="fa fa-home"></i></a></li>
-                        <li class="breadcrumb-item active">{{ $about_us->name }}</li>
+                        <li class="breadcrumb-item active">{{ $about_us->name ?? 'About Us' }}</li>
                     </ol>
                 </nav>
             </div>
@@ -20,7 +20,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="mb-5">
-                            {!! $about_us->content  !!}
+                            {!! $about_us->content ?? '<p>Content will be added soon.</p>' !!}
                         </div>
                     </div>
                 </div>

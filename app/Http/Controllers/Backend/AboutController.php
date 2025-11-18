@@ -5,31 +5,35 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Abouts;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class AboutController extends Controller
 {
     public function index()
     {
-        $about = DB::table('abouts')->where('key', 'about_us')->first();
+        $companyId = Auth::user()->company_id;
+        $about = Abouts::where('company_id', $companyId)
+            ->where('key', 'about_us')
+            ->first();
         return view('backend.pages.about.index', compact('about'));
     }
 
     public function update(Request $request)
     {
+        $companyId = Auth::user()->company_id;
 
-        $about = Abouts::where('key', 'about_us')->first();
-
-        $about->updateOrCreate(
+        Abouts::updateOrCreate(
             [
+                'company_id' => $companyId,
                 'key' => 'about_us'
-            ], [
+            ],
+            [
                 'name' => $request->name,
                 'title' => $request->title,
                 'content' => $request->content
             ]
         );
 
-        return back()->withSuccess('Başarıyla güncellendi!');
+        return back()->with('success', 'About page updated successfully!');
     }
 }

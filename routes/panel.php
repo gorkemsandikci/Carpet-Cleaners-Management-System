@@ -1,8 +1,13 @@
 <?php
 
 use App\Http\Controllers\Backend\AboutController;
+use App\Http\Controllers\Backend\ContactMessageController;
 use App\Http\Controllers\Backend\CustomerController;
 use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\GalleryController;
+use App\Http\Controllers\Backend\HomepageContentController;
+use App\Http\Controllers\Backend\ServiceController;
+use App\Http\Controllers\Backend\SiteSettingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,6 +38,20 @@ Route::group(['middleware' => ['panelsetting', 'auth'], 'prefix' => 'panel', 'as
 
     Route::get('/about', [AboutController::class, 'index'])->name('about.index');
     Route::post('/about', [AboutController::class, 'update'])->name('about.update');
+
+    Route::resource('service', ServiceController::class)->names('service')->except(['show']);
+    Route::resource('gallery', GalleryController::class)->names('gallery')->except(['show']);
+    Route::resource('homepage-content', HomepageContentController::class)->names('homepage-content')->except(['show']);
+    Route::resource('contact-message', ContactMessageController::class)->names('contact-message')->only(['index', 'show', 'destroy']);
+
+    Route::group(['prefix' => 'settings', 'as' => 'settings.'], function () {
+        Route::get('/', [SiteSettingController::class, 'index'])->name('index');
+        Route::post('/bulk-update', [SiteSettingController::class, 'updateBulk'])->name('bulk-update');
+        Route::get('/create', [SiteSettingController::class, 'create'])->name('create');
+        Route::post('/store', [SiteSettingController::class, 'store'])->name('store');
+        Route::put('/{setting}', [SiteSettingController::class, 'update'])->name('update');
+        Route::delete('/{setting}', [SiteSettingController::class, 'destroy'])->name('destroy');
+    });
 
 });
 

@@ -13,17 +13,23 @@ class CustomerSeeder extends Seeder
      */
     public function run(): void
     {
+        $company = \App\Models\Company::first();
+        if (!$company) {
+            return;
+        }
+
         Customer::create([
-            'first_name' => 'görkem',
-            'last_name' => 'sandıkcı',
+            'company_id' => $company->id,
+            'first_name' => 'John',
+            'last_name' => 'Doe',
             'gender' => 'male',
-            'city_id' => 'istanbuk',
-            'district_id' => 'kartal',
-            'address' => 'üsküdar cd orhantepe mh no: 167',
-            'special_notes' => 'yazılımcı',
+            'city_id' => 'istanbul',
+            'district_id' => 'kadikoy',
+            'address' => 'Sample Address',
+            'special_notes' => 'Sample customer',
             'status' => '1',
-            'email' => 'gorkem@gorkemnet.com',
-            'phone' => '05458918905',
+            'email' => 'customer@example.com',
+            'phone' => '+90 XXX XXX XX XX',
         ]);
     }
 }

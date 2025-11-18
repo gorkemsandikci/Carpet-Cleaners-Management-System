@@ -4,45 +4,56 @@
                                                                       alt="{{ config('app.name') }}"/></a>
             <div class="d-flex align-items-center">
                 <ul class="contact-items">
-                    <li><i class="fa fa-phone-alt"></i><a href="tel:05322157205"><b>Telefon</b><span>0532 215 72
-                           05</span></a></li>
-                    <li><i class="far fa-envelope"></i><a
-                            href="cdn-cgi/l/email-protection.html#6900070f06291f080d000206051d1c02100002080408470a0604"><b>E-posta</b><span><span
-                                    class="__cf_email__"
-                                    data-cfemail="95fcfbf3fad5e3f4f1fcfefaf9e1e0feecfcfef4f8f4bbf6faf8">[email&#160;protected]</span></span></a>
-                    </li>
+                    @if(isset($settings['phone']) && $settings['phone'])
+                    <li><i class="fa fa-phone-alt"></i><a href="tel:{{ preg_replace('/[^0-9+]/', '', $settings['phone']) }}"><b>{{ __('common.phone') }}</b><span>{{ $settings['phone'] }}</span></a></li>
+                    @endif
+                    @if(isset($settings['email']) && $settings['email'])
+                    <li><i class="far fa-envelope"></i><a href="mailto:{{ $settings['email'] }}"><b>{{ __('common.email') }}</b><span>{{ $settings['email'] }}</span></a></li>
+                    @endif
                 </ul>
-                <a href="tel://+905322157205" target="_self" class="big-button"><i
-                        class="fa fa-phone mr-1"></i><span>Randevu Al!</span></a>
+                @if(isset($settings['phone']) && $settings['phone'])
+                <a href="tel://{{ preg_replace('/[^0-9+]/', '', $settings['phone']) }}" target="_self" class="big-button"><i
+                        class="fa fa-phone mr-1"></i><span>{{ $settings['cta_button_text'] ?? __('common.get_appointment') }}</span></a>
+                @endif
             </div>
         </div>
     </div>
     <div class="bottom-bar">
-        <div class="container"><a href="{{ url('/') }}" class="logo"><img src="{{ url('/') }}/assets/uploads/vadilogo.png"
-                                                                      alt="Padişah&Beyefendi Halı Koltuk Perde Yıkama"/></a>
+        <div class="container"><a href="{{ url('/') }}" class="logo">
+            @if(isset($settings['logo']) && $settings['logo'])
+                <img src="{{ asset('storage/' . $settings['logo']) }}" alt="{{ $settings['site_name'] ?? config('app.name') }}"/>
+            @else
+                <img src="{{ url('/') }}/assets/uploads/w-logo.png" alt="{{ $settings['site_name'] ?? config('app.name') }}"/>
+            @endif
+        </a>
             <div class="d-flex align-items-center justify-content-end justify-content-lg-between w-100">
                 <div class="mobile-menu"><i class="fa fa-bars"></i></div>
                 <div class="menu">
                     <nav>
                         <ul>
-                            <li><a href="{{ url('/') }}">Ana Sayfa</a></li>
-                            <li><a href="{{ url('/hakkimizda') }}">Hakkımızda</a></li>
-                            <li><a href="{{ url('/hizmetlerimiz') }}">Hizmetlerimiz</a></li>
-                            <li><a href="{{ url('/galeri') }}">Galeri</a></li>
-                            <li><a href="{{ url('/iletisim') }}">Bize Ulaşın</a></li>
-                            <li class="d-lg-none"><a href="tel://+905322157205" target="_self" class="big-button"><i
-                                        class="fa fa-phone mr-1"></i><span>Randevu Al!</span></a></li>
+                            <li><a href="{{ url('/') }}">{{ __('common.home') }}</a></li>
+                            <li><a href="{{ url('/hakkimizda') }}">{{ __('common.about_us') }}</a></li>
+                            <li><a href="{{ url('/hizmetlerimiz') }}">{{ __('common.services') }}</a></li>
+                            <li><a href="{{ url('/galeri') }}">{{ __('common.gallery') }}</a></li>
+                            <li><a href="{{ url('/iletisim') }}">{{ __('common.contact_us') }}</a></li>
+                            @if(isset($settings['phone']) && $settings['phone'])
+                            <li class="d-lg-none"><a href="tel://{{ preg_replace('/[^0-9+]/', '', $settings['phone']) }}" target="_self" class="big-button"><i
+                                        class="fa fa-phone mr-1"></i><span>{{ $settings['cta_button_text'] ?? __('common.get_appointment') }}</span></a></li>
+                            @endif
                         </ul>
                     </nav>
                 </div>
-                <div class="lang ">
+                <div class="lang">
                     <ul>
-                        <li><a href="javascript:;"><img src="{{ url('/') }}/assets/images/tr.png"
-                                                        alt="Türkçe"/></a></li>
-                        <li><a href="en.html"><img src="{{ url('/') }}/assets/images/en.png"
-                                                   alt="English"/></a>
+                        <li>
+                            <a href="{{ route('language.switch', 'tr') }}" class="{{ app()->getLocale() == 'tr' ? 'active' : '' }}">
+                                <img src="{{ url('/') }}/assets/images/tr.png" alt="Türkçe"/>
+                            </a>
                         </li>
-                        <li><a href="ar.html"><img src="{{ url('/') }}/assets/images/ar.png" alt="Arabic"/></a>
+                        <li>
+                            <a href="{{ route('language.switch', 'en') }}" class="{{ app()->getLocale() == 'en' ? 'active' : '' }}">
+                                <img src="{{ url('/') }}/assets/images/en.png" alt="English"/>
+                            </a>
                         </li>
                     </ul>
                 </div>

@@ -21,8 +21,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="mb-5">
-                            <p>Padişah&Beyefendi Halı Koltuk Perde Yıkama, İstanbul genelinde koltuk temizliği konusunda
-                                uzmanlaşmış bir temizlik şirketidir.
+                            <p>Firmamız, profesyonel temizlik hizmetleri konusunda uzmanlaşmış bir şirkettir.
                                 Koltuk yıkama konusunda profesyonel olan ekibimiz, inatçı lekeleri derinlemesine
                                 temizler ve sağlığa
                                 zararlı olan kirleri, bakterileri tamamen giderir.</p>
@@ -39,8 +38,7 @@
                                 derinlemesine temizlik için uzman bir temizlik firmasından hizmet almanız gerekir.
                                 Ailenizin ve
                                 sevdiklerinizin sağlığı her şeyden önemlidir.</p>
-                            <p>Padişah&Beyefendi Halı Koltuk Perde Yıkama olarak, sizi ve ailenizi daha sağlıklı ve
-                                mutlu bir ortamda yaşamanız için
+                            <p>Firmamız olarak, sizi ve ailenizi daha sağlıklı ve mutlu bir ortamda yaşamanız için
                                 evinizdeki koltuk ve kanepe gibi mobilyaları Alman teknolojisi ile üretilen modern
                                 koltuk yıkama
                                 makineleri ve çevre dostu temizlik malzemeleri ile ilk günkü haline kavuşturuyoruz.</p>
@@ -50,14 +48,11 @@
                                 Mutlu
                                 müşterilerimiz arasına katılmanız için bir telefon kadar size yakınız.</p>
                             <h2><strong>Yerinde Koltuk Yıkama Hizmeti</strong></h2>
-                            <p>Padişah&Beyefendi Halı Koltuk Perde Yıkama olarak, İstanbul ve ilçelerine yerinde koltuk
-                                yıkama ve temizlik hizmeti
-                                vermekteyiz. Mobil ev temizliği hizmetimiz sayesinde koltuk ve kanepelerinizi başka bir
+                            <p>Firmamız olarak, yerinde temizlik hizmeti vermekteyiz. Mobil hizmetimiz sayesinde eşyalarınızı başka bir
                                 yere taşıma
                                 derdine girmeden yerinde ve doğru şekilde temizliyoruz.</p>
-                            <p>Koltuk ve kanepelerinizin temiz olması, samimi ve konforlu bir yaşam alanı için olmazsa
-                                olmazdır. Vadi
-                                koltuk yıkama olarak, bireyler ve şirketler için temizlik sektöründe uzun yıllara
+                            <p>Eşyalarınızın temiz olması, samimi ve konforlu bir yaşam alanı için olmazsa
+                                olmazdır. Firmamız olarak, bireyler ve şirketler için temizlik sektöründe uzun yıllara
                                 dayanan deneyime
                                 sahibiz ve müşterilerimize profesyonel ev temizliği hizmeti sunuyoruz.</p>
                             <p>Her gün kendimizi işimize adadığımız tutku ve detaylara gösterdiğimiz özen, kaliteli bir
@@ -94,8 +89,8 @@
                                 koltuklarınızı derinlemesine temizleyerek ilk günkü gibi yeni görünmesini sağlar.
                                 Geleneksel yıkamadan
                                 farklı olarak, buharlı temizlik çok daha az su tüketimi gerektirir.</p>
-                            <p>Padişah&Beyefendi Halı Koltuk Perde Yıkama olarak, buharlı koltuk yıkama hizmeti ile
-                                müşterilerimizin koltuk ve kanepelerini en
+                            <p>Firmamız olarak, buharlı temizlik hizmeti ile
+                                müşterilerimizin eşyalarını en
                                 hijyenik yöntemleri kullanarak sorunsuz şekilde temizliyoruz. Hızlı ve sonuç odaklı
                                 temizlik
                                 çözümlerimiz ile tanışmak için hemen bizi arayın!</p>

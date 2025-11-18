@@ -1,0 +1,371 @@
+/* Frontend Text Color Fixes - Ensure all text is visible */
+
+/* Header Navigation Menu */
+.header-3 .menu ul li a {
+    color: #1d1d1f !important;
+    font-weight: 400;
+}
+
+.header-3 .menu ul li a:hover {
+    color: var(--primary-color, #0071e3) !important;
+}
+
+/* Header Top Bar - Contact Items */
+.header-3 .top-bar {
+    background: rgba(255, 255, 255, 0.95) !important;
+}
+
+.header-3 .contact-items li {
+    color: #1d1d1f !important;
+}
+
+.header-3 .contact-items li a {
+    color: #1d1d1f !important;
+}
+
+.header-3 .contact-items li a b {
+    color: #1d1d1f !important;
+    font-weight: 600;
+}
+
+.header-3 .contact-items li a span {
+    color: #86868b !important;
+}
+
+.header-3 .contact-items li i {
+    color: var(--primary-color, #0071e3) !important;
+}
+
+/* Header Bottom Bar */
+.header-3 .bottom-bar {
+    background: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* Mobile Menu Icon */
+.header-3 .mobile-menu i {
+    color: #1d1d1f !important;
+}
+
+/* Big Button in Header */
+.header-3 .big-button {
+    color: #ffffff !important;
+    background: var(--button-primary, #0071e3) !important;
+}
+
+.header-3 .big-button span {
+    color: #ffffff !important;
+}
+
+.header-3 .big-button i {
+    color: #ffffff !important;
+}
+
+/* Footer - All Text Dark */
+.footer-3 {
+    background: #f5f5f7 !important;
+    color: #1d1d1f !important;
+}
+
+.footer-3 h3 {
+    color: #1d1d1f !important;
+    font-weight: 600;
+}
+
+.footer-3 p {
+    color: #86868b !important;
+}
+
+.footer-3 .desc {
+    color: #86868b !important;
+}
+
+.footer-3 .links ul li a {
+    color: #86868b !important;
+    transition: color 0.2s ease;
+}
+
+.footer-3 .links ul li a:hover {
+    color: var(--primary-color, #0071e3) !important;
+}
+
+.footer-3 .links ul li a i {
+    color: var(--primary-color, #0071e3) !important;
+}
+
+.footer-3 .social ul li a {
+    color: #86868b !important;
+}
+
+.footer-3 .social ul li a:hover {
+    color: var(--primary-color, #0071e3) !important;
+}
+
+.footer-3 .social ul li a i {
+    color: inherit !important;
+}
+
+/* Footer Copyright */
+.footer-3 .copy {
+    background: rgba(0, 0, 0, 0.05) !important;
+    border-top: 0.5px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+.footer-3 .copy span {
+    color: #86868b !important;
+}
+
+/* Counter Section - Item Text */
+.counters-2 {
+    background: #f5f5f7 !important;
+}
+
+.counters-2 .item {
+    color: #1d1d1f !important;
+    text-align: center;
+    padding: 24px;
+}
+
+.counters-2 .item i {
+    color: var(--primary-color, #0071e3) !important;
+    font-size: 48px;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.counters-2 .item .num {
+    color: #1d1d1f !important;
+    font-size: 48px;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.counters-2 .item .num .count {
+    color: #1d1d1f !important;
+    font-weight: 700;
+}
+
+.counters-2 .item .num small {
+    color: #86868b !important;
+    font-size: 24px;
+}
+
+.counters-2 .item .title {
+    color: #86868b !important;
+    font-weight: 400;
+    font-size: 16px;
+    margin-top: 8px;
+    display: block;
+}
+
+/* Section Titles */
+.section-title {
+    color: #1d1d1f !important;
+}
+
+.section-title span {
+    color: #1d1d1f !important;
+}
+
+.section-sub-title {
+    color: #86868b !important;
+}
+
+.section-sub-title strong {
+    color: #1d1d1f !important;
+}
+
+/* Icon List Items */
+.i-list .i-list-item .icon-content .title {
+    color: #1d1d1f !important;
+}
+
+.i-list .i-list-item .icon-content p {
+    color: #86868b !important;
+}
+
+.i-list .i-list-item .icon-content .sub-title {
+    color: #86868b !important;
+}
+
+/* FAQ Section */
+.faq .big-title h3 {
+    color: #1d1d1f !important;
+}
+
+.faq .desc {
+    color: #86868b !important;
+}
+
+.faq .acc-head {
+    color: #1d1d1f !important;
+}
+
+.faq .acc-head span {
+    color: #1d1d1f !important;
+}
+
+.faq .acc-body {
+    color: #86868b !important;
+}
+
+/* Service Slider */
+.service-slider .item .content h4 {
+    color: #1d1d1f !important;
+}
+
+.service-slider .item .content p {
+    color: #86868b !important;
+}
+
+.service-slider .item .content .readmore {
+    color: var(--primary-color, #0071e3) !important;
+}
+
+.service-slider .item .content .readmore:hover {
+    color: var(--button-primary-hover, #0056b3) !important;
+}
+
+/* Breadcrumb */
+.breadcrumb-item a {
+    color: #86868b !important;
+}
+
+.breadcrumb-item.active {
+    color: #1d1d1f !important;
+}
+
+.breadcrumb-item i {
+    color: #86868b !important;
+}
+
+/* Banner Title */
+.banner .title {
+    color: #ffffff !important;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Panel Content */
+.panel {
+    color: #1d1d1f !important;
+}
+
+.panel h1,
+.panel h2,
+.panel h3,
+.panel h4,
+.panel h5,
+.panel h6 {
+    color: #1d1d1f !important;
+}
+
+.panel p {
+    color: #86868b !important;
+}
+
+.panel strong {
+    color: #1d1d1f !important;
+}
+
+.panel ul li {
+    color: #86868b !important;
+}
+
+/* Big Title */
+.big-title h3 {
+    color: #1d1d1f !important;
+}
+
+.big-title h5 {
+    color: #86868b !important;
+}
+
+/* Contact Form Labels */
+.contact-form label {
+    color: #1d1d1f !important;
+}
+
+/* Ensure all links are visible */
+a {
+    color: var(--primary-color, #0071e3) !important;
+}
+
+a:hover {
+    color: var(--button-primary-hover, #0056b3) !important;
+}
+
+/* Override index.css footer colors */
+:root {
+    --footer-title-color: #1d1d1f !important;
+    --footer-text-color: #86868b !important;
+    --footer-copy-text-color: #86868b !important;
+}
+
+footer {
+    color: #1d1d1f !important;
+}
+
+footer h3,
+footer h4,
+footer h5,
+footer h6 {
+    color: #1d1d1f !important;
+}
+
+footer p,
+footer span,
+footer li {
+    color: #86868b !important;
+}
+
+footer a {
+    color: #86868b !important;
+}
+
+footer a:hover {
+    color: var(--primary-color, #0071e3) !important;
+}
+
+/* Language Switcher - Active Flag Styling */
+.header-3 .lang ul li a.active {
+    opacity: 1 !important;
+    filter: grayscale(0) !important;
+    -webkit-filter: grayscale(0) !important;
+    border: 2px solid var(--primary-color, #0071e3) !important;
+    border-radius: 4px !important;
+    background-color: rgba(0, 113, 227, 0.15) !important;
+    padding: 2px 8px !important;
+    margin-top: 0 !important;
+    position: relative !important;
+    z-index: 10 !important;
+}
+
+.header-3 .lang ul li a.active img {
+    opacity: 1 !important;
+    filter: grayscale(0) !important;
+    -webkit-filter: grayscale(0) !important;
+}
+
+/* Override hover effects for active flag */
+.header-3 .lang ul:hover li a.active {
+    opacity: 1 !important;
+    filter: grayscale(0) !important;
+    -webkit-filter: grayscale(0) !important;
+    background-color: rgba(0, 113, 227, 0.2) !important;
+}
+
+/* Ensure active flag is always visible and on top */
+.header-3 .lang ul li:first-child a.active,
+.header-3 .lang ul li:not(:first-child) a.active {
+    margin-top: 0 !important;
+    opacity: 1 !important;
+    filter: grayscale(0) !important;
+    -webkit-filter: grayscale(0) !important;
+}
+
+/* Make sure active flag doesn't get hidden by other flags */
+.header-3 .lang ul li a.active {
+    transform: scale(1.1) !important;
+    box-shadow: 0 2px 8px rgba(0, 113, 227, 0.3) !important;
+}
+

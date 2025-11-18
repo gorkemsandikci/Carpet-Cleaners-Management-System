@@ -16,7 +16,15 @@ class PanelSettingMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $settings = SiteSetting::pluck('data', 'name')->toArray();
+        $companyId = auth()->user()->company_id ?? null;
+
+        if ($companyId) {
+            $settings = SiteSetting::where('company_id', $companyId)
+                ->pluck('data', 'name')
+                ->toArray();
+        } else {
+            $settings = [];
+        }
 
         view()->share(['settings' => $settings]);
 
